@@ -11,4 +11,6 @@
     <string name="my_agreement">使用协议</string>
     <string name="my_about">关于我们</string>
     <string name="share">分享</string>
+    <string name="share_content">好的东西就要分享给朋友</string>
+    <string name="edit_login">退出当前账号</string>
 </resources>
