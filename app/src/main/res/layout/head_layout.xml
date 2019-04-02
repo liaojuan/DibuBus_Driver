@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.driver.bus.dibu.dibubus_driver.view.CircleImageView
+        android:id="@+id/user_head"
+        android:layout_width="@dimen/dp_65"
+        android:layout_height="@dimen/dp_65"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/user_head"
+        app:srcCompat="@android:drawable/sym_def_app_icon"
+        />
+
+    <TextView
+        android:id="@+id/user_driver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/login_logo_background"
+        android:layout_marginTop="@dimen/dp_6"
+        android:textSize="@dimen/sp_15"
+        android:layout_gravity="center_horizontal"
+        android:text="周大生"
+        />
+
+    <!--评分控件-->
+    <com.driver.bus.dibu.dibubus_driver.view.RatingView
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/dp_6"
+        android:layout_marginRight="@dimen/dp_6"
+        android:background="@color/transparent"
+        app:isInteger="true"
+        app:rating="0"
+        app:ratingDrawable="@drawable/rating_max_bg"
+        app:ratingMargin="@dimen/dp_4"
+        app:ratingNum="5"
+        app:ratingSize="@dimen/dp_6"
+        app:ratingSlectColor="@color/orange"
+        app:userEnable="false" />
+    <!--评分-->
+
+</LinearLayout>

@@ -14,6 +14,7 @@
     <color name="gray_b">#c8c8c8</color>
     <color name="no_have_user_color">#999999</color>
     <color name="click_register_color">#1654AC</color>
+    <color name="transparent">#00000000</color>
 
     <!--添加日期 2019.04.02-->
 </resources>
