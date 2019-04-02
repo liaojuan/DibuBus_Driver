@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/login_logo_background</item>
+        <item name="colorPrimaryDark">@color/login_logo_background</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--无标题-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--竖线-->
+    <style name="horizontalLine_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_size</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <!--项目中所有电话号码输入框样式-->
+    <style name="edit_phone_style">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/login_logo_background</item>
+        <item name="android:textColorHint">@color/login_hint_color</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+        <item name="android:inputType">number</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLength">50</item>
+        <item name="android:hint">@string/username_hint</item>
+    </style>
+
+    <!--登录注册等截面button的统一属性样式-->
+    <style name="button_style">
+        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_48</item>
+        <item name="android:layout_marginLeft">@dimen/dp_16</item>
+        <item name="android:layout_marginRight">@dimen/dp_16</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:enabled">false</item>
+        <item name="android:layout_marginTop">@dimen/dp_30</item>
+    </style>
+
+</resources>

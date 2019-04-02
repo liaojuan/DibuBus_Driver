@@ -1,0 +1,47 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="line_size">1px</dimen>
+    <dimen name="toolbar_height">44dp</dimen>
+    <dimen name="min_padding">5dp</dimen>
+    <dimen name="medium_padding">10dp</dimen>
+    <dimen name="max_padding">15dp</dimen>
+
+
+    <dimen name="min_front">12sp</dimen>
+    <dimen name="medium_front">14sp</dimen>
+    <dimen name="medium_front_1">15sp</dimen>
+    <dimen name="max_front">16sp</dimen>
+
+    <dimen name="horizontal_line_height">1px</dimen>
+
+    <!--2019.04.02  text-size-->
+
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_17">17sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+
+    <!--2019.04.02  text-size-->
+
+    <!--2019.04.02  margin-->
+
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_11">11dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_31">31dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_58">58dp</dimen>
+    <dimen name="dp_150">150dp</dimen>
+    <dimen name="dp_190">190dp</dimen>
+    <dimen name="dp_210">210dp</dimen>
+
+    <!--2019.04.02  margin-->
+
+</resources>

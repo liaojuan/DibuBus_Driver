@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--添加日期 2019.04.02-->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="line_color">#f0f0f0</color>
+    <color name="login_logo_background">#071e3e</color>
+    <color name="login_hint_color">#bbbbbb</color>
+    <color name="orange">#F0A700</color>
+    <color name="gray_b">#c8c8c8</color>
+    <color name="no_have_user_color">#999999</color>
+    <color name="click_register_color">#1654AC</color>
+
+    <!--添加日期 2019.04.02-->
+</resources>
