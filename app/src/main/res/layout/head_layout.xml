@@ -10,7 +10,7 @@
         android:layout_width="@dimen/dp_65"
         android:layout_height="@dimen/dp_65"
         android:layout_gravity="center_horizontal"
-        android:src="@mipmap/user_head"
+        android:src="@mipmap/ic_launcher"
         app:srcCompat="@android:drawable/sym_def_app_icon"
         />
 
@@ -43,5 +43,53 @@
         app:ratingSlectColor="@color/orange"
         app:userEnable="false" />
     <!--评分-->
+
+    <TextView
+        android:id="@+id/my_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_order"
+        android:textColor="@color/text_color"
+        android:drawableLeft="@mipmap/my_order"
+        android:paddingLeft="@dimen/dp_30"
+        android:drawablePadding="@dimen/dp_11"
+        android:textSize="@dimen/sp_14"
+        />
+
+    <TextView
+        android:id="@+id/my_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_order"
+        android:textColor="@color/text_color"
+        android:drawableLeft="@mipmap/my_line"
+        android:paddingLeft="@dimen/dp_30"
+        android:drawablePadding="@dimen/dp_11"
+        android:textSize="@dimen/sp_14"
+        />
+
+    <TextView
+        android:id="@+id/my_agreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_order"
+        android:textColor="@color/text_color"
+        android:drawableLeft="@mipmap/my_icon_about_normal"
+        android:paddingLeft="@dimen/dp_30"
+        android:drawablePadding="@dimen/dp_11"
+        android:textSize="@dimen/sp_14"
+        />
+
+    <TextView
+        android:id="@+id/my_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mine_order"
+        android:textColor="@color/text_color"
+        android:drawableLeft="@mipmap/my_icon_about_normal"
+        android:paddingLeft="@dimen/dp_30"
+        android:drawablePadding="@dimen/dp_11"
+        android:textSize="@dimen/sp_14"
+        />
 
 </LinearLayout>
