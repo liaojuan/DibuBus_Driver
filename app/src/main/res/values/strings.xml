@@ -7,4 +7,8 @@
     <string name="no_have_user">还没有账号？</string>
     <string name="click_register">点击注册</string>
     <string name="mine_order">我的订单</string>
+    <string name="my_line">线路管理</string>
+    <string name="my_agreement">使用协议</string>
+    <string name="my_about">关于我们</string>
+    <string name="share">分享</string>
 </resources>
