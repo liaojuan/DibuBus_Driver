@@ -43,6 +43,7 @@
     <dimen name="dp_36">36dp</dimen>
     <dimen name="dp_48">48dp</dimen>
     <dimen name="dp_49">49dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
     <dimen name="dp_58">58dp</dimen>
     <dimen name="dp_65">65dp</dimen>
     <dimen name="dp_120">120dp</dimen>
