@@ -10,7 +10,7 @@
         android:layout_width="@dimen/dp_65"
         android:layout_height="@dimen/dp_65"
         android:layout_gravity="center_horizontal"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/user_head"
         app:srcCompat="@android:drawable/sym_def_app_icon"
         />
 
@@ -94,7 +94,7 @@
         android:paddingLeft="@dimen/dp_30"
         android:drawablePadding="@dimen/dp_11"
         android:textSize="@dimen/sp_14"
-        />
+        android:drawableStart="@mipmap/my_icon_about_normal" />
 
     <TextView
         android:id="@+id/share_txt"
