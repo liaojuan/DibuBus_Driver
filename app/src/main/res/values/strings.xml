@@ -15,4 +15,10 @@
     <string name="edit_login">退出当前账号</string>
     <string name="online_duration">在线时长</string>
     <string name="order_num">接单数</string>
+    <array name="share_items">
+        <item>QQ空间</item>
+        <item>QQ好友</item>
+        <item>微信好友</item>
+        <item>微信朋友圈</item>
+    </array>
 </resources>

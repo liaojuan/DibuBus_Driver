@@ -48,6 +48,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             />
+
+        <!--关于我们页面-->
+        <activity android:name=".ui.activity.AboutActivity"
+            android:label="@string/my_about"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

@@ -127,6 +127,8 @@ abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
 
     override fun onClick(v: View?) {
         when(v!!.id){
+            R.id.title_left_txt ->
+                finish()
             R.id.title_right_img ->
                 startActivity(Intent(this, MessageActivity::class.java))
             R.id.title_right_txt ->

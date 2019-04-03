@@ -91,12 +91,13 @@ class MainActivity : BaseActivity() , View.OnClickListener{
             }
             R.id.my_about -> {
                 //关于我们
+                startActivity(Intent(this, AboutActivity::class.java))
                 drawer_layout.closeDrawer(GravityCompat.START)
             }
             R.id.share_txt -> {
                 //分享
-                drawer_layout.closeDrawer(GravityCompat.START)
                 startActivity(Intent(this, ShareActivity::class.java))
+                drawer_layout.closeDrawer(GravityCompat.START)
             }
             R.id.edit_login_txt -> {
                 //退出当前账号
