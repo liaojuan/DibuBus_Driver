@@ -56,6 +56,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             />
+
+        <!--我的订单页面-->
+        <activity android:name=".ui.activity.MyOrderListActivity"
+            android:label="@string/my_about"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

@@ -16,6 +16,11 @@
     <color name="click_register_color">#1654AC</color>
     <color name="transparent">#00000000</color>
     <color name="text_color">#333333</color>
+    <color name="order_one_color">#1654AC</color>
+    <color name="order_two_color">#32B16C</color>
+    <color name="background_color">#f0f0f0</color>
+    <color name="blue_type">#2e65b4</color>
+    <color name="green_type">#47b97b</color>
 
     <!--添加日期 2019.04.02-->
 </resources>
