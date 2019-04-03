@@ -1,5 +1,6 @@
 package com.driver.bus.dibu.dibubus_driver.ui.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
@@ -95,6 +96,7 @@ class MainActivity : BaseActivity() , View.OnClickListener{
             R.id.share_txt -> {
                 //分享
                 drawer_layout.closeDrawer(GravityCompat.START)
+                startActivity(Intent(this, ShareActivity::class.java))
             }
             R.id.edit_login_txt -> {
                 //退出当前账号

@@ -40,6 +40,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             />
+
+        <!--分享页面-->
+        <activity android:name=".ui.activity.ShareActivity"
+            android:label="@string/share"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>
