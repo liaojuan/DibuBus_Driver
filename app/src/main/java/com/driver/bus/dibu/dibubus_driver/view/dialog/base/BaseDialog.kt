@@ -1,4 +1,4 @@
-package com.driver.bus.dibu.dibubus_driver.view.dialog
+package com.driver.bus.dibu.dibubus_driver.view.dialog.base
 
 import android.app.Dialog
 import android.content.Context
