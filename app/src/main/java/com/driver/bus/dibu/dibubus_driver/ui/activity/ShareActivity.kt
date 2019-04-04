@@ -5,7 +5,7 @@ import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.bean.ShareBean
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.ShareItemAdapter
-import com.driver.bus.dibu.dibubus_driver.utils.LogUtils
+import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import com.driver.bus.dibu.dibubus_driver.view.RecyclerViewSpacesItemDecoration
 import kotlinx.android.synthetic.main.activity_share.*
 import java.util.HashMap

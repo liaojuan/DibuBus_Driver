@@ -5,7 +5,7 @@ import android.content.Context
 import android.text.TextUtils
 import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.utils.Constans
-import com.driver.bus.dibu.dibubus_driver.utils.LogUtils
+import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreApi
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
 import okhttp3.OkHttpClient

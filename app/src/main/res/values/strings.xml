@@ -21,4 +21,6 @@
         <item>微信好友</item>
         <item>微信朋友圈</item>
     </array>
+    <string name="no_network_hint">当前无网络</string>
+    <string name="request_error">请求异常</string>
 </resources>

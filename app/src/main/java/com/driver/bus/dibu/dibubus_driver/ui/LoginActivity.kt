@@ -9,6 +9,7 @@ import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.contract.LoginContract
 import com.driver.bus.dibu.dibubus_driver.presenter.LoginPresenter
 import com.driver.bus.dibu.dibubus_driver.ui.activity.MainActivity
+import com.driver.bus.dibu.dibubus_driver.ui.activity.RegisterActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
 import kotlinx.android.synthetic.main.activity_login.*
@@ -62,7 +63,7 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
                 presenter.login(username_txt.text.toString(), pass_word_txt.text.toString(), 2)
             }
             R.id.user_click_register_txt ->{
-//                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, RegisterActivity::class.java))
             }
         }
     }
@@ -74,7 +75,11 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
     }
 
     override fun showLoginFail(msg: String?) {
+        normalFail(msg)
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDestory()
+    }
 }

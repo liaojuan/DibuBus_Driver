@@ -1,24 +1,18 @@
 package com.driver.bus.dibu.dibubus_driver.ui.activity
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
-import com.driver.bus.dibu.dibubus_driver.utils.LogUtils
-import kotlinx.android.synthetic.main.activity_base.*
+import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.head_layout.*
 import kotlinx.android.synthetic.main.head_layout.view.*
 import kotlinx.android.synthetic.main.main_layout.*
-import kotlinx.android.synthetic.main.main_layout.view.*
 
 class MainActivity : BaseActivity() , View.OnClickListener{
 

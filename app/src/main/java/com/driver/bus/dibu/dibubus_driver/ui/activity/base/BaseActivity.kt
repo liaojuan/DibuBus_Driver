@@ -10,6 +10,8 @@ import android.view.Window
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.ui.MessageActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.AddLineActivity
+import com.driver.bus.dibu.dibubus_driver.utils.LocalUtil
+import com.driver.bus.dibu.dibubus_driver.utils.logutils.ToastUtil
 import com.driver.bus.dibu.dibubus_driver.view.dialog.ProgressBarDialog
 import kotlinx.android.synthetic.main.activity_base.*
 
@@ -156,6 +158,19 @@ abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
                 startActivity(Intent(this, AddLineActivity::class.java))
         }
     }
+
+    /**
+     * 通常请求异常处理
+     */
+    fun normalFail(msg: String?) {
+        dismissProgress()
+        if (!TextUtils.isEmpty(msg)) {
+            ToastUtil.showShortToast(msg!!, mContext)
+        } else
+            ToastUtil.showShortToast(if (LocalUtil.validateNetwork(mContext)) R.string.request_error else R.string.no_network_hint, mContext)
+    }
+
+
 
 
 }

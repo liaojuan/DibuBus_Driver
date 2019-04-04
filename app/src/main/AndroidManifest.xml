@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.driver.bus.dibu.dibubus_driver">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -59,6 +62,14 @@
 
         <!--我的订单页面-->
         <activity android:name=".ui.activity.MyOrderListActivity"
+            android:label="@string/my_about"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <!--注册页面-->
+        <activity android:name=".ui.activity.RegisterActivity"
             android:label="@string/my_about"
             android:exported="true"
             android:screenOrientation="portrait"

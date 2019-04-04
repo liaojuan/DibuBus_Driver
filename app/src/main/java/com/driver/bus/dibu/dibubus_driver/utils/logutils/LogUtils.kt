@@ -1,9 +1,13 @@
-package com.driver.bus.dibu.dibubus_driver.utils
+package com.driver.bus.dibu.dibubus_driver.utils.logutils
 
 import android.util.Log
+import com.driver.bus.dibu.dibubus_driver.utils.Constans
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * log 打印日志
+ */
 class LogUtils {
     companion object {
 
