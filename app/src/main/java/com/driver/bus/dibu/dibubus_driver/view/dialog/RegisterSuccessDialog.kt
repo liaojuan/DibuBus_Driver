@@ -28,7 +28,7 @@ class RegisterSuccessDialog(private val mContext: Context) : BaseDialog(mContext
 //        marginLayoutParams.bottomMargin = margin
 
         val layoutParams = window.attributes
-        layoutParams.width = (ScreenUtil.getScreenWidth(context) * 0.85).toInt()
+        layoutParams.width = (ScreenUtil.getScreenWidth(context) * 0.8).toInt()
         layoutParams.gravity = Gravity.CENTER
         layoutParams.windowAnimations = 0
 
