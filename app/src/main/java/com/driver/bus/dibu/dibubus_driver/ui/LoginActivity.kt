@@ -12,6 +12,7 @@ import com.driver.bus.dibu.dibubus_driver.ui.activity.MainActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.RegisterActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
+import com.driver.bus.dibu.dibubus_driver.view.dialog.RegisterSuccessDialog
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
@@ -63,7 +64,11 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
                 presenter.login(username_txt.text.toString(), pass_word_txt.text.toString(), 2)
             }
             R.id.user_click_register_txt ->{
-                startActivity(Intent(this, RegisterActivity::class.java))
+//                startActivity(Intent(this, RegisterActivity::class.java))
+                val dialog = RegisterSuccessDialog(mContext)
+                dialog.show()
+//                al mainAdDialog = MainAdDialog(context, adResult!!.data)
+//                mainAdDialog.show()
             }
         }
     }

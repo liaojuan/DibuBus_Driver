@@ -64,6 +64,7 @@
     <dimen name="dp_210">210dp</dimen>
     <dimen name="dp_240">240dp</dimen>
     <dimen name="dp_270">270dp</dimen>
+    <dimen name="dp_315">315dp</dimen>
 
     <!--2019.04.02  margin-->
 
