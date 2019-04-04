@@ -1,5 +1,6 @@
 package com.driver.bus.dibu.dibubus_driver.ui.activity.base
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,15 +10,19 @@ import android.view.Window
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.ui.MessageActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.AddLineActivity
+import com.driver.bus.dibu.dibubus_driver.view.dialog.ProgressBarDialog
 import kotlinx.android.synthetic.main.activity_base.*
 
 abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
+    lateinit var mContext: Context
+    var progressBarDialog : ProgressBarDialog ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
+        mContext = this
 
+        setContentView(R.layout.activity_base)
         setLinstener()
 
         val contentView = getContent()
@@ -122,8 +127,24 @@ abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
         title_right_img.visibility = View.GONE
     }
 
+    /**
+     * 显示加载进度条
+     */
+    fun showProgress(){
+        if (progressBarDialog == null){
+            progressBarDialog = ProgressBarDialog(mContext)
+        }
+        progressBarDialog!!.show()
+    }
 
-
+    /**
+     * 隐藏加载进度条
+     */
+    fun dismissProgress(){
+        if (progressBarDialog != null && progressBarDialog!!.isShowing) {
+            progressBarDialog!!.dismiss()
+        }
+    }
 
     override fun onClick(v: View?) {
         when(v!!.id){

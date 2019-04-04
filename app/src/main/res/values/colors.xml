@@ -21,6 +21,7 @@
     <color name="background_color">#f0f0f0</color>
     <color name="blue_type">#2e65b4</color>
     <color name="green_type">#47b97b</color>
+    <color name="order_item_type_color">#666666</color>
 
     <!--添加日期 2019.04.02-->
 </resources>
