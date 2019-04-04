@@ -62,12 +62,52 @@
         android:orientation="horizontal"
         >
 
+        <RelativeLayout
+            android:id="@+id/ellipse_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            >
+            <ImageView
+                android:id="@+id/order_list_item_blue_ellipse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:src="@mipmap/blue_ellipse"
+                />
+            <ImageView
+                android:id="@+id/order_list_item_green_ellipse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_list_item_blue_ellipse"
+                android:layout_marginTop="@dimen/dp_56"
+                android:src="@mipmap/green_ellipse"
+                />
+            <ImageView
+                android:id="@+id/order_list_item_vertical_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_list_item_green_ellipse"
+                android:layout_marginTop="@dimen/dp_30"
+                android:src="@mipmap/vertical_point"
+                />
+            <ImageView
+                android:id="@+id/order_list_item_yellow_ellipse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/order_list_item_vertical_point"
+                android:layout_marginTop="@dimen/dp_10"
+                android:src="@mipmap/yellow_ellipse"
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/order_list_item_up_car_time_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginTop="@dimen/dp_15"
+            android:layout_toRightOf="@+id/ellipse_layout"
             android:textColor="@color/login_logo_background"
             android:textSize="@dimen/sp_16"
             android:text="16:00上车"
@@ -107,6 +147,7 @@
             android:lines="1"
             android:layout_marginTop="@dimen/dp_14"
             android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toRightOf="@+id/ellipse_layout"
             android:layout_below="@+id/order_list_item_up_car_time_txt"
             android:textSize="@dimen/sp_18"
             android:text="成都是新都区随便什么地址"
@@ -120,6 +161,7 @@
             android:lines="1"
             android:layout_marginTop="@dimen/dp_14"
             android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toRightOf="@+id/ellipse_layout"
             android:layout_below="@+id/order_list_item_start_address_txt"
             android:textSize="@dimen/sp_18"
             android:text="资阳汽车总站"
