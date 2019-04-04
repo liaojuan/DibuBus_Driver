@@ -17,13 +17,50 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/white_shape_bg"
         android:orientation="vertical"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="注册资料提交成功"
+            android:textSize="@dimen/sp_21"
+            android:textStyle="bold"
+            android:textColor="@color/login_logo_background"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/sp_16"
+            android:text="尊敬的司机师傅：
+        您好！感谢您对代步巴士的信
+任和支持，您的注册资料已经提交
+成功，我们工作人员正在对您的资
+料进行审核，审核结果会以短信的
+方式发送到您注册的手机上，请注
+意查收。"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/orange_bottom_shape_bg"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:layout_gravity="center_horizontal"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
