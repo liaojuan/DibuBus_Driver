@@ -70,7 +70,7 @@
 
         <!--注册页面-->
         <activity android:name=".ui.activity.RegisterActivity"
-            android:label="@string/my_about"
+            android:label="@string/register_message_fill"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"

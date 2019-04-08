@@ -1,5 +1,6 @@
 package com.driver.bus.dibu.dibubus_driver.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.text.Editable
 import android.text.TextUtils
@@ -64,11 +65,7 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
                 presenter.login(username_txt.text.toString(), pass_word_txt.text.toString(), 2)
             }
             R.id.user_click_register_txt ->{
-//                startActivity(Intent(this, RegisterActivity::class.java))
-                val dialog = RegisterSuccessDialog(mContext)
-                dialog.show()
-//                al mainAdDialog = MainAdDialog(context, adResult!!.data)
-//                mainAdDialog.show()
+                startActivity(Intent(this, RegisterActivity::class.java))
             }
         }
     }
@@ -86,5 +83,13 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
     override fun onDestroy() {
         super.onDestroy()
         presenter.onDestory()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            val dialog = RegisterSuccessDialog(mContext)
+            dialog.show()
+        }
     }
 }
