@@ -1,6 +1,7 @@
 package com.driver.bus.dibu.dibubus_driver.ui.activity
 
 import android.content.Intent
+import android.graphics.Rect
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.driver.bus.dibu.dibubus_driver.view.RecyclerViewSpacesItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.head_layout.view.*
 import kotlinx.android.synthetic.main.main_layout.*
+import kotlinx.android.synthetic.main.main_layout_line_item.view.*
 
 class MainActivity : BaseActivity() , View.OnClickListener{
 
@@ -38,7 +40,16 @@ class MainActivity : BaseActivity() , View.OnClickListener{
 
         initLinstener()
 
-        var adapter = MainLineAdapter(this, initData()!!)
+//        var width = 0
+        val list = initData()
+//        for (i in 0 until list.size + 1){
+//            val rect= Rect()
+//            itemView.main_layout_line_item_txt.paint.getTextBounds(list[p1], 0, list[p1].length,rect)
+//            width +=
+//        }
+
+
+        var adapter = MainLineAdapter(this, list!!)
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         main_layout_departure_recycler.layoutManager = linearLayoutManager
@@ -132,11 +143,15 @@ class MainActivity : BaseActivity() , View.OnClickListener{
      */
     private fun initData(): ArrayList<String> {
         var list = ArrayList<String>()
-        val shareData = this!!.resources.getStringArray(R.array.share_items)
+        val shareData = this!!.resources.getStringArray(R.array.line_city)
         for (i in shareData.indices) {
             list.add(i, shareData[i])
         }
         LogUtils.e("我在点击", "----list------${list.size}")
         return list
+    }
+
+    private fun getData(){
+//        ScreenUtil.getViewHeight()
     }
 }

@@ -1,6 +1,7 @@
 package com.driver.bus.dibu.dibubus_driver.ui.adapter
 
 import android.content.Context
+import android.graphics.Rect
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.bean.ShareBean
+import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import kotlinx.android.synthetic.main.main_layout_line_item.view.*
 
 /**
@@ -21,19 +23,40 @@ class MainLineAdapter(context: Context, list: ArrayList<String>) : RecyclerView.
     var context = context
     var list = list
     var inter: MyInter ?= null
+    var width = 0
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
         var view: View = LayoutInflater.from(context).inflate(R.layout.main_layout_line_item, p0, false) //这种方式布局里面宽度要用wrap_content  不然 他默认是全屏
-        var holder = MyViewHolder(view)
-        return holder
+        return MyViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return list?.size
+        return list.size
     }
 
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
-        p0?.name?.text = list[p1]
+        p0?.name.text = list[p1]
+
+        val rect=Rect()
+        p0.itemView.main_layout_line_item_txt.paint.getTextBounds(list[p1], 0, list[p1].length,rect)
+
+        width += rect.width()
+
+
+//        for (i in 0 until list.size) {
+//            width += rect.width()
+            LogUtils.e("---","--------------${rect.width()} ----- $width")
+//        }
+//        for (i in 0 until list.size + 1){
+//            width += 20
+//        }
+//        if (width > 450){
+//
+//        }else{
+//
+//        }
+
+//        LogUtils.e("---","--------------${rect.width()} ----- $width")
 
         p0!!.itemView.setOnClickListener {
             inter?.onItemClick()
@@ -55,4 +78,17 @@ class MainLineAdapter(context: Context, list: ArrayList<String>) : RecyclerView.
     interface MyInter{
         fun onItemClick()
     }
+
+//    /**
+//     * 获取整个textview宽度
+//     */
+//    private fun listWidth() : Int{
+//        var width = 0
+//        for (i in 0 until list.size) {
+//            width =
+//        }
+//        return width
+//    }
+
+
 }

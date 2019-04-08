@@ -24,4 +24,12 @@
     <string name="no_network_hint">当前无网络</string>
     <string name="request_error">请求异常</string>
     <string name="register_message_fill">注册信息填写</string>
+    <array name="line_city">
+        <item>QQ空间</item>
+        <item>QQ好友</item>
+        <item>微信好友</item>
+        <item>微信朋友圈</item>
+        <item>成都</item>
+        <item>北京</item>
+    </array>
 </resources>
