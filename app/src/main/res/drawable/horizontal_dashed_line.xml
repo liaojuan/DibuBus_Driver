@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+    <stroke
+        android:width="5dp"
+        android:color="#4ec5ff"
+        android:dashGap="2dp"
+        android:dashWidth="10dp" />
+</shape>
+
+<!--  https://www.cnblogs.com/LOVEJIEYING/p/6016591.html  android 自定义控件——（三）水平线、虚线-->
