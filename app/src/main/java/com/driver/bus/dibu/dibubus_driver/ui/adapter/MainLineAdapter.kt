@@ -42,7 +42,6 @@ class MainLineAdapter(context: Context, list: ArrayList<String>) : RecyclerView.
 
         width += rect.width()
 
-
 //        for (i in 0 until list.size) {
 //            width += rect.width()
             LogUtils.e("---","--------------${rect.width()} ----- $width")
