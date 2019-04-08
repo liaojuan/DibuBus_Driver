@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false"
+    >
+    <solid android:color="@color/orange" />
+    <padding
+        android:left="@dimen/dp_5"
+        android:top="@dimen/dp_5"
+        android:right="@dimen/dp_5"
+        android:bottom="@dimen/dp_5"
+        />
+    <solid android:color="@color/orange"/>
+    <stroke
+        android:width="@dimen/horizontal_line_height"
+        android:color="@color/white" />
+    <size
+        android:width="@dimen/dp_104"
+        android:height="@dimen/dp_104"
+        />
+</shape>
