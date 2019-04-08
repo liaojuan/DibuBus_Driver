@@ -65,7 +65,8 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
                 presenter.login(username_txt.text.toString(), pass_word_txt.text.toString(), 2)
             }
             R.id.user_click_register_txt ->{
-                startActivity(Intent(this, RegisterActivity::class.java))
+//                startActivity(Intent(this, RegisterActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
     }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -17,28 +18,25 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/main_right_img"
                 android:layout_width="@dimen/dp_16"
                 android:layout_height="@dimen/dp_18"
-                android:src="@mipmap/title_right_message"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dp_15"
-                />
+                android:src="@mipmap/title_right_message" />
 
             <ImageView
                 android:id="@+id/main_left_img"
                 android:layout_width="@dimen/dp_16"
                 android:layout_height="@dimen/dp_18"
-                android:src="@mipmap/title_left_slef"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dp_12"
-                />
+                android:src="@mipmap/title_left_slef" />
 
             <TextView
                 android:id="@+id/main_center_txt"
@@ -46,143 +44,263 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="@dimen/sp_18" />
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
+        android:id="@+id/main_user_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_160"
+        android:layout_below="@+id/main_toolbar"
         android:background="@color/login_logo_background"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <com.driver.bus.dibu.dibubus_driver.view.CircleImageView
                 android:id="@+id/user_head_img"
                 android:layout_width="@dimen/dp_55"
                 android:layout_height="@dimen/dp_55"
-                android:layout_marginTop="@dimen/dp_10"
-                android:layout_marginLeft="@dimen/dp_30"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_10"
                 android:src="@mipmap/user_head"
-                app:srcCompat="@android:drawable/sym_def_app_icon"
-                />
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
 
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_11">
+
+                <TextView
+                    android:id="@+id/main_layout_user_name_txt"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_11"
-                    >
+                    android:text="周树人"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_12" />
+                <!--评分控件-->
+                <com.driver.bus.dibu.dibubus_driver.view.RatingView
+                    android:id="@+id/main_layout_rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:layout_toRightOf="@+id/main_layout_user_name_txt"
+                    android:background="@color/transparent"
+                    app:isInteger="true"
+                    app:rating="0"
+                    app:ratingDrawable="@drawable/rating_max_bg"
+                    app:ratingMargin="@dimen/dp_4"
+                    app:ratingNum="5"
+                    app:ratingSize="@dimen/dp_12"
+                    app:ratingSlectColor="@color/orange"
+                    app:userEnable="false" />
+                <!--评分-->
 
-                    <TextView
-                        android:id="@+id/main_layout_user_name_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/sp_12"
-                        android:textColor="@color/white"
-                        android:text="周树人"
-                        />
-                    <!--评分控件-->
-                    <com.driver.bus.dibu.dibubus_driver.view.RatingView
-                        android:id="@+id/main_layout_rating_bar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_3"
-                        android:layout_toRightOf="@+id/main_layout_user_name_txt"
-                        android:layout_marginLeft="@dimen/dp_10"
-                        android:background="@color/transparent"
-                        app:isInteger="true"
-                        app:rating="0"
-                        app:ratingDrawable="@drawable/rating_max_bg"
-                        app:ratingMargin="@dimen/dp_4"
-                        app:ratingNum="5"
-                        app:ratingSize="@dimen/dp_12"
-                        app:ratingSlectColor="@color/orange"
-                        app:userEnable="false" />
-                    <!--评分-->
+                <TextView
+                    android:id="@+id/main_layout_license_plate_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_layout_user_name_txt"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="川A 87Y15"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_12" />
 
-                    <TextView
-                        android:id="@+id/main_layout_license_plate_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_15"
-                        android:layout_below="@+id/main_layout_user_name_txt"
-                        android:textSize="@dimen/sp_12"
-                        android:textColor="@color/white"
-                        android:text="川A 87Y15" />
-
-                    <TextView
-                        android:id="@+id/main_layout_car_type_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_15"
-                        android:layout_marginLeft="@dimen/dp_13"
-                        android:layout_toRightOf="@+id/main_layout_license_plate_txt"
-                        android:layout_below="@+id/main_layout_rating_bar"
-                        android:textSize="@dimen/sp_12"
-                        android:textColor="@color/white"
-                        android:text="宇通大巴车" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/main_layout_car_type_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_layout_rating_bar"
+                    android:layout_marginLeft="@dimen/dp_13"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_toRightOf="@+id/main_layout_license_plate_txt"
+                    android:text="宇通大巴车"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_12" />
+            </RelativeLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_30"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/main_layout_online_duration_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_24"
                 android:text="1时50分"
-                />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_24" />
+
             <TextView
                 android:id="@+id/main_layout_order_num_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_24"
                 android:text="150单"
-                />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_24" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_13"
                 android:text="@string/online_duration"
-                />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_13" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_13"
                 android:text="@string/order_num"
-                />
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_13" />
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_bottom_layout"
+        android:layout_below="@+id/main_user_layout"
+        android:background="@color/background_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:background="@drawable/white_bottom_shape_bg">
+
+            <ImageView
+                android:id="@+id/main_layout_time_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_16"
+                android:src="@mipmap/timeicon" />
+
+            <TextView
+                android:id="@+id/main_layout_departure_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_toRightOf="@+id/main_layout_time_icon"
+                android:text="12:30出站"
+                android:textColor="@color/login_logo_background"
+                android:textSize="@dimen/sp_18" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_layout_departure_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/main_layout_departure_txt"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:layout_marginRight="@dimen/dp_21" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/main_layout_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_shape_bg"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_70"
+            android:layout_gravity="bottom"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/main_layout_add_line_layout"
+            android:layout_width="@dimen/dp_68"
+            android:layout_height="@dimen/dp_68"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_33"
+            android:background="@mipmap/line_bg"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:background="@mipmap/line_blue"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="线路"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_layout_center_go_layout"
+            android:layout_width="@dimen/dp_104"
+            android:layout_height="@dimen/dp_104"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/go_bg"
+            >
+            <ImageView
+                android:layout_width="@dimen/dp_90"
+                android:layout_height="@dimen/dp_90"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/go_orange"
+                 />
+
+            <TextView
+                android:id="@+id/main_layout_center_go_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="出车"
+                android:textColor="@color/login_logo_background"
+                android:textSize="@dimen/sp_24" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
