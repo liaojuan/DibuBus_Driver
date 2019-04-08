@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_layout_line_item_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="成都"
+            android:textColor="@color/gray_three_color"
+            android:textSize="@dimen/sp_15" />
+
+        <ImageView
+            android:id="@+id/main_layout_line_item_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/line_ellipse" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/main_layout_line_item_horizontal_dash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/dp_3"
+        android:src="@mipmap/horizontal_dash" />
+
+    <ImageView
+        android:id="@+id/main_layout_line_item_fillet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/fillet"
+        android:layout_marginBottom="@dimen/dp_3"
+        android:layout_gravity="bottom|right"
+        />
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/horizontal_dashed_line"
+        android:layout_below="@+id/main_layout_line_item_txt"
+        />-->
+
+</FrameLayout>

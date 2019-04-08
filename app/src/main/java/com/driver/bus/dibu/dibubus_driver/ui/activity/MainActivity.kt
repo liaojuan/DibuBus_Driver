@@ -3,13 +3,17 @@ package com.driver.bus.dibu.dibubus_driver.ui.activity
 import android.content.Intent
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
+import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainLineAdapter
+import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
+import com.driver.bus.dibu.dibubus_driver.view.RecyclerViewSpacesItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.head_layout.view.*
 import kotlinx.android.synthetic.main.main_layout.*
@@ -33,6 +37,14 @@ class MainActivity : BaseActivity() , View.OnClickListener{
         drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
 
         initLinstener()
+
+        var adapter = MainLineAdapter(this, initData()!!)
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        main_layout_departure_recycler.layoutManager = linearLayoutManager
+        val mm = RecyclerViewSpacesItemDecoration(ScreenUtil.sher())
+        main_layout_departure_recycler.addItemDecoration(mm)
+        main_layout_departure_recycler.adapter = adapter
     }
 
     fun setTitler(str: CharSequence) {
@@ -112,5 +124,19 @@ class MainActivity : BaseActivity() , View.OnClickListener{
             }
             //主界面
         }
+    }
+
+
+    /**
+     * 初始化数据
+     */
+    private fun initData(): ArrayList<String> {
+        var list = ArrayList<String>()
+        val shareData = this!!.resources.getStringArray(R.array.share_items)
+        for (i in shareData.indices) {
+            list.add(i, shareData[i])
+        }
+        LogUtils.e("我在点击", "----list------${list.size}")
+        return list
     }
 }
