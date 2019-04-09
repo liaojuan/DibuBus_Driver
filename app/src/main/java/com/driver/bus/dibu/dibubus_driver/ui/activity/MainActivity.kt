@@ -5,6 +5,7 @@ import android.graphics.Rect
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.head_layout.view.*
 import kotlinx.android.synthetic.main.main_layout.*
 import kotlinx.android.synthetic.main.main_layout_line_item.view.*
 
-class MainActivity : BaseActivity() , View.OnClickListener{
+class MainActivity : BaseActivity(), View.OnClickListener {
 
     override fun getContentResId(): Int {
         return R.layout.activity_main
@@ -42,39 +43,73 @@ class MainActivity : BaseActivity() , View.OnClickListener{
 
         initLinstener()
 
-//        var width = 0
         val list = initData()
-        var adapter = MainLineAdapter(this, list!!)
+        var adapter = MainLineAdapter(this, list)
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         main_layout_departure_recycler.layoutManager = linearLayoutManager
 
-        val decoration = getItemDecoration(getWidth(list), list )
-        val mm = RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
+        val decoration = getItemDecoration(getWidth(list), list)
+        val mm = if (decoration > 0)
+             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
+        else
+             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, decoration))
         main_layout_departure_recycler.addItemDecoration(mm)
         main_layout_departure_recycler.adapter = adapter
-    }
+        var bo = decoration > 20
+        if (bo) {
+            main_layout_line_item_fillet.visibility = View.VISIBLE
+        } else {
+            main_layout_line_item_fillet.visibility = View.GONE
+        }
+        main_layout_departure_recycler!!.setOnScrollListener(object : RecyclerView.OnScrollListener() {
+            //用来标记是否正在向最后一个滑动
+            var isSlidingToLast = false
 
-//    var width = 0 //textview所有内容和间距之和
-//    var widths = 0 //textview所有内容之和
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (recyclerView != null) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                }
+                val manager = recyclerView!!.layoutManager as LinearLayoutManager
+                // 当不滚动时
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    //获取最后一个完全显示的ItemPosition
+                    val lastVisibleItem = manager.findLastCompletelyVisibleItemPosition()
+                    val totalItemCount = manager.itemCount
+
+                    // 判断是否滚动到底部，并且是向右滚动
+                    if (lastVisibleItem == totalItemCount - 1 && isSlidingToLast) {
+                        //加载更多功能的代码
+                        main_layout_line_item_fillet.visibility = View.VISIBLE
+                    } else {
+                        main_layout_line_item_fillet.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (recyclerView != null) {
+                    super.onScrolled(recyclerView, dx, dy)
+                }
+                //dx用来判断横向滑动方向，dy用来判断纵向滑动方向
+                isSlidingToLast = dx > 0
+            }
+        })
+    }
 
     /**
      * 获取字体宽度
      */
-    private fun getWidth(list: ArrayList<String>) : Int{
+    private fun getWidth(list: ArrayList<String>): Int {
         var width = 0
         val view = layoutInflater.inflate(R.layout.main_layout_line_item, null)
-//        if (list!!.size < 4){
-            for (i in 0 until list.size){
-                val rect = Rect()
-                view.main_layout_line_item_txt.paint.getTextBounds(list[i], 0, list[i].length, rect)
-//                width += rect.width() + 20
-                width += rect.width()
-            }
-
-//        }
-        var s = 20 * list!!.size
-        LogUtils.e("MainActivity","----------MainActivity------$width----$s")
+        for (i in 0 until list.size) {
+            val rect = Rect()
+            view.main_layout_line_item_txt.paint.getTextBounds(list[i], 0, list[i].length, rect)
+            width += rect.width()
+        }
+        var s = 20 * list.size
+        LogUtils.e("MainActivity", "----------MainActivity------$width----$s")
         width += s
         return width
     }
@@ -82,22 +117,16 @@ class MainActivity : BaseActivity() , View.OnClickListener{
     /**
      * 设置item间距
      */
-    private fun getItemDecoration(width: Int, list: ArrayList<String>) : Int{
+    private fun getItemDecoration(width: Int, list: ArrayList<String>): Int {
         val screenWidth = ScreenUtil.getScreenWidth(mContext) //获取屏幕宽度
         var itemDecoration = 20
-        var widths = 20 * list!!.size
-        if (screenWidth < width){
+        var widths = 20 * list.size
+        if (screenWidth < width) {
             //这个距离就不变
-        }else{
-//            for (i in 0 until list!!.size){
-//                widths += 20
-//            }
-
-            itemDecoration = ((screenWidth - width + widths) / list!!.size) / 2
-//            itemDecoration = ((screenWidth - width + widths + 20) / list!!.size).toInt()
+        } else {
+            itemDecoration = ((screenWidth - width + widths) / list.size) / 2
         }
-        LogUtils.e("MainActivity","----------MainActivity------screenWidth----$screenWidth----width---$width-----$widths----itemDecoration----$itemDecoration")
-//        LogUtils.e("MainActivity","----------MainActivity------itemDecoration----$itemDecoration")
+        LogUtils.e("MainActivity", "----------MainActivity------screenWidth----$screenWidth----width---$width-----$widths----itemDecoration----$itemDecoration")
         return itemDecoration
     }
 
@@ -109,7 +138,7 @@ class MainActivity : BaseActivity() , View.OnClickListener{
     /**
      * 注册监听
      */
-    fun initLinstener(){
+    fun initLinstener() {
         val navigationView = nav_view.getHeaderView(0)
         navigationView.user_head.setOnClickListener(this)
         navigationView.my_order.setOnClickListener(this)
@@ -122,12 +151,12 @@ class MainActivity : BaseActivity() , View.OnClickListener{
         main_right_img.setOnClickListener(this)
     }
 
-//    if (drawer.isDrawerOpen(GravityCompat.START)) {
+    //    if (drawer.isDrawerOpen(GravityCompat.START)) {
 //        drawer.closeDrawer(GravityCompat.START);
     override fun onClick(v: View?) {
-        when(v!!.id){
+        when (v!!.id) {
             //左边菜单栏部分
-            R.id.user_head ->{
+            R.id.user_head -> {
                 //用户头像
                 drawer_layout.closeDrawer(GravityCompat.START)
             }
@@ -171,7 +200,7 @@ class MainActivity : BaseActivity() , View.OnClickListener{
 //                drawer_layout.isDrawerVisible(GravityCompat.START)
 //                drawer_layout.isDrawerOpen(GravityCompat.START)
                 drawer_layout.openDrawer(Gravity.LEFT)
-                LogUtils.e("我正在打印","------我正在打印---")
+                LogUtils.e("我正在打印", "------我正在打印---")
             }
             R.id.main_right_img -> {
                 //标题栏右边图片
@@ -186,7 +215,7 @@ class MainActivity : BaseActivity() , View.OnClickListener{
      */
     private fun initData(): ArrayList<String> {
         var list = ArrayList<String>()
-        val shareData = this!!.resources.getStringArray(R.array.line_city)
+        val shareData = this.resources.getStringArray(R.array.line_city)
         for (i in shareData.indices) {
             list.add(i, shareData[i])
         }
