@@ -7,16 +7,20 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.R.id.main_layout_line_item_txt
+import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainLineAdapter
 import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
+import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreApi
+import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
 import com.driver.bus.dibu.dibubus_driver.view.RecyclerViewSpacesItemDecoration
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.head_layout.view.*
@@ -43,6 +47,13 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         initLinstener()
 
+//        var data = SharedpreferencesUtil.getObject("login") as LoginModel.LoginData
+        var data = SharedpreferencesUtil.getObject(SharedpreApi.LOGINMODEL)
+        if (data != null) {
+            data as LoginModel.LoginData
+            LogUtils.e("MainActivity", "----------MainActivity------${data.age} ------${data.avatarUrl}")
+        }
+
         val list = initData()
         var adapter = MainLineAdapter(this, list)
         val linearLayoutManager = LinearLayoutManager(this)
@@ -51,9 +62,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         val decoration = getItemDecoration(getWidth(list), list)
         val mm = if (decoration > 0)
-             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
+            RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
         else
-             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, decoration))
+            RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, decoration))
         main_layout_departure_recycler.addItemDecoration(mm)
         main_layout_departure_recycler.adapter = adapter
         var bo = decoration > 20

@@ -8,10 +8,12 @@ import android.text.TextWatcher
 import android.view.View
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.contract.LoginContract
+import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.presenter.LoginPresenter
 import com.driver.bus.dibu.dibubus_driver.ui.activity.MainActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.RegisterActivity
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
+import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreApi
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
 import com.driver.bus.dibu.dibubus_driver.view.dialog.RegisterSuccessDialog
 import kotlinx.android.synthetic.main.activity_login.*
@@ -66,6 +68,10 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
             }
             R.id.user_click_register_txt ->{
 //                startActivity(Intent(this, RegisterActivity::class.java))
+//                var data:LoginModel.LoginData =LoginModel.LoginData()
+//                data.age = 1
+//                data.avatarUrl = "sjajg"
+//                SharedpreferencesUtil.saveObject("login",data)
                 startActivity(Intent(this, MainActivity::class.java))
             }
         }
@@ -73,6 +79,10 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
 
     override fun showLoginSuccess() {
         dismissProgress()
+        var data:LoginModel.LoginData =LoginModel.LoginData()
+        data.age = 1
+        data.avatarUrl = "sjajg"
+        SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL,data)
         startActivity(Intent(mContext, MainActivity::class.java))
         finish()
     }
