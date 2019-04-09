@@ -26,10 +26,10 @@
     <string name="register_message_fill">注册信息填写</string>
     <array name="line_city">
         <item>QQ空间</item>
-        <item>QQ好友</item>
+        <!--<item>QQ好友沮丧空间控件噶了几个他看看给口干口苦个沮丧啊开个3进去扣价格加个</item>-->
         <!--<item>微信好友</item>-->
         <!--<item>微信朋友圈</item>-->
         <!--<item>成都</item>-->
-        <!--<item>北京</item>-->
+        <item>北京</item>
     </array>
 </resources>

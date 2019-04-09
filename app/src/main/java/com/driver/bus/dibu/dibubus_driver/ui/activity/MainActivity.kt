@@ -7,9 +7,11 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 
 import com.driver.bus.dibu.dibubus_driver.R
+import com.driver.bus.dibu.dibubus_driver.R.id.main_layout_line_item_txt
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainLineAdapter
 import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
@@ -42,20 +44,61 @@ class MainActivity : BaseActivity() , View.OnClickListener{
 
 //        var width = 0
         val list = initData()
-//        for (i in 0 until list.size + 1){
-//            val rect= Rect()
-//            itemView.main_layout_line_item_txt.paint.getTextBounds(list[p1], 0, list[p1].length,rect)
-//            width +=
-//        }
-
-
         var adapter = MainLineAdapter(this, list!!)
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         main_layout_departure_recycler.layoutManager = linearLayoutManager
-        val mm = RecyclerViewSpacesItemDecoration(ScreenUtil.sher())
+
+        val decoration = getItemDecoration(getWidth(list), list )
+        val mm = RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
         main_layout_departure_recycler.addItemDecoration(mm)
         main_layout_departure_recycler.adapter = adapter
+    }
+
+//    var width = 0 //textview所有内容和间距之和
+//    var widths = 0 //textview所有内容之和
+
+    /**
+     * 获取字体宽度
+     */
+    private fun getWidth(list: ArrayList<String>) : Int{
+        var width = 0
+        val view = layoutInflater.inflate(R.layout.main_layout_line_item, null)
+//        if (list!!.size < 4){
+            for (i in 0 until list.size){
+                val rect = Rect()
+                view.main_layout_line_item_txt.paint.getTextBounds(list[i], 0, list[i].length, rect)
+//                width += rect.width() + 20
+                width += rect.width()
+            }
+
+//        }
+        var s = 20 * list!!.size
+        LogUtils.e("MainActivity","----------MainActivity------$width----$s")
+        width += s
+        return width
+    }
+
+    /**
+     * 设置item间距
+     */
+    private fun getItemDecoration(width: Int, list: ArrayList<String>) : Int{
+        val screenWidth = ScreenUtil.getScreenWidth(mContext) //获取屏幕宽度
+        var itemDecoration = 20
+        var widths = 20 * list!!.size
+        if (screenWidth < width){
+            //这个距离就不变
+        }else{
+//            for (i in 0 until list!!.size){
+//                widths += 20
+//            }
+
+            itemDecoration = ((screenWidth - width + widths) / list!!.size) / 2
+//            itemDecoration = ((screenWidth - width + widths + 20) / list!!.size).toInt()
+        }
+        LogUtils.e("MainActivity","----------MainActivity------screenWidth----$screenWidth----width---$width-----$widths----itemDecoration----$itemDecoration")
+//        LogUtils.e("MainActivity","----------MainActivity------itemDecoration----$itemDecoration")
+        return itemDecoration
     }
 
     fun setTitler(str: CharSequence) {
@@ -151,7 +194,4 @@ class MainActivity : BaseActivity() , View.OnClickListener{
         return list
     }
 
-    private fun getData(){
-//        ScreenUtil.getViewHeight()
-    }
 }

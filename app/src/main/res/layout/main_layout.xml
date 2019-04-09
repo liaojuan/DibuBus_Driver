@@ -219,6 +219,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_12"
                 android:layout_below="@+id/main_layout_departure_txt"
                 >
 

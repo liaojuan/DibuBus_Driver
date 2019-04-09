@@ -23,6 +23,7 @@
         android:id="@+id/main_layout_line_item_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
         android:layout_gravity="center_horizontal"
         android:src="@mipmap/line_ellipse" />
 

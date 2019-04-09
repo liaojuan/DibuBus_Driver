@@ -119,12 +119,15 @@ object ScreenUtil {
         return result
     }
 
-    fun sher(): HashMap<String, Int> {
+    /**
+     * 主界面的
+     */
+    fun sher(top: Int, bottom: Int, left: Int, right: Int): HashMap<String, Int> {
         val stringIntegerHashMap = HashMap<String, Int>()
-        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.TOP_DECORATION] = 0//top间距
-        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.BOTTOM_DECORATION] = 30//底部间距
-        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.LEFT_DECORATION] = 15//左间距
-        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.RIGHT_DECORATION] = 15//右间距
+        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.TOP_DECORATION] = top//top间距
+        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.BOTTOM_DECORATION] = bottom//底部间距
+        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.LEFT_DECORATION] = left//左间距
+        stringIntegerHashMap[RecyclerViewSpacesItemDecoration.RIGHT_DECORATION] = right//右间距
         return stringIntegerHashMap
     }
 
