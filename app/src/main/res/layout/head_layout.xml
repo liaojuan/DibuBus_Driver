@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_49"
-        android:text="@string/mine_order"
+        android:text="@string/my_order"
         android:textColor="@color/text_color"
         android:drawableLeft="@mipmap/my_order"
         android:paddingLeft="@dimen/dp_30"

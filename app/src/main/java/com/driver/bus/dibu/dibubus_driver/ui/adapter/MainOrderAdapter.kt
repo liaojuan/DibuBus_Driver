@@ -41,6 +41,7 @@ class MainOrderAdapter(val list: List<String>, val mContext: Context) : BaseAdap
         return mConvertView!!
     }
 
+
     override fun getItem(position: Int): Any {
         return list!![position]
     }

@@ -62,7 +62,7 @@
 
         <!--我的订单页面-->
         <activity android:name=".ui.activity.MyOrderListActivity"
-            android:label="@string/my_about"
+            android:label="@string/my_order"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -71,6 +71,14 @@
         <!--注册页面-->
         <activity android:name=".ui.activity.RegisterActivity"
             android:label="@string/register_message_fill"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <!--线路设置页面-->
+        <activity android:name=".ui.activity.SetLineActivity"
+            android:label="@string/set_line"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"

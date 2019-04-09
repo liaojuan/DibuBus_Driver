@@ -215,10 +215,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.my_order -> {
                 //我的订单
                 drawer_layout.closeDrawer(GravityCompat.START)
+                startActivity(Intent(this, MyOrderListActivity::class.java))
             }
             R.id.my_line -> {
                 //线路管理
                 drawer_layout.closeDrawer(GravityCompat.START)
+                startActivity(Intent(this, SetLineActivity::class.java))
             }
             R.id.my_agreement -> {
                 //使用协议
