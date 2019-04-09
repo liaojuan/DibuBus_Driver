@@ -219,9 +219,8 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_42"
-                android:layout_marginTop="@dimen/dp_12"
                 android:layout_below="@+id/main_layout_departure_txt"
-                >
+                android:layout_marginTop="@dimen/dp_12">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/main_layout_departure_recycler"
@@ -234,9 +233,9 @@
                     android:id="@+id/main_layout_line_item_horizontal_dash"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
                     android:layout_marginLeft="@dimen/dp_21"
                     android:layout_marginRight="@dimen/dp_21"
-                    android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/dp_18"
                     android:src="@mipmap/horizontal_dash" />
 
@@ -244,22 +243,107 @@
                     android:id="@+id/main_layout_line_item_fillet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/dp_21"
-                    android:src="@mipmap/fillet"
-                    android:layout_marginBottom="@dimen/dp_18"
                     android:layout_gravity="bottom|right"
-                    />
+                    android:layout_marginRight="@dimen/dp_21"
+                    android:layout_marginBottom="@dimen/dp_18"
+                    android:src="@mipmap/fillet" />
             </FrameLayout>
 
         </RelativeLayout>
 
-        <ListView
-            android:id="@+id/main_layout_list_view"
+        <RelativeLayout
+            android:id="@+id/main_order_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_12"
-            android:background="@drawable/white_shape_bg" />
+            android:layout_marginBottom="@dimen/dp_12"
+            android:background="@drawable/white_shape_bg"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/home_icon_my_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_9"
+                android:layout_marginTop="@dimen/dp_17"
+                android:src="@mipmap/home_icon_my_normal" />
+
+            <TextView
+                android:id="@+id/main_order_item_type_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_9"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_toRightOf="@+id/home_icon_my_normal"
+                android:includeFontPadding="false"
+                android:text="系统消息"
+                android:textColor="@color/login_logo_background"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/main_layout_order_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/main_order_item_type_txt"
+                android:layout_toRightOf="@+id/home_icon_my_normal"
+                android:divider="@color/transparent"
+                android:dividerHeight="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:listSelector="@color/transparent"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:scrollbars="none" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/main_message_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:background="@drawable/white_shape_bg"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/main_message_item_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_9"
+                android:layout_marginTop="@dimen/dp_17"
+                android:src="@mipmap/notice" />
+
+            <TextView
+                android:id="@+id/main_message_item_type_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_9"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_toRightOf="@+id/main_message_item_notice"
+                android:includeFontPadding="false"
+                android:text="系统消息"
+                android:textColor="@color/login_logo_background"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/main_layout_message_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/main_message_item_type_txt"
+                android:layout_toRightOf="@+id/main_message_item_notice"
+                android:divider="@color/transparent"
+                android:dividerHeight="@dimen/dp_10"
+                android:listSelector="@color/transparent"
+                android:paddingLeft="@dimen/dp_12"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_12"
+                android:scrollbars="none" />
+            <!--android:cacheColorHint="@color/transparent"-->
+        </RelativeLayout>
 
     </LinearLayout>
 

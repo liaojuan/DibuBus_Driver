@@ -128,7 +128,7 @@ object SharedpreferencesUtil {
             objectOutputStream.writeObject(`object`)
             val string = String(Base64.encode(byteArrayOutputStream.toByteArray(), Base64.DEFAULT))
             objectOutputStream.close()
-            LogUtils.e("---","--------Sharedpreferences-----object----$string")
+//            LogUtils.e("---","--------Sharedpreferences-----object----$string")
             return string
         } catch (e: IOException) {
             e.printStackTrace()
@@ -167,7 +167,7 @@ object SharedpreferencesUtil {
      * @param saveObject 储存的对象
      */
     fun saveObject(key: String, saveObject: Any) {
-        LogUtils.e("---","--------Sharedpreferences-----$saveObject")
+//        LogUtils.e("---","--------Sharedpreferences-----$saveObject")
         val string = Object2String(saveObject) as String
         if (string != null) {
             saveValue(key, string)
@@ -184,7 +184,7 @@ object SharedpreferencesUtil {
      */
     fun getObject(key: String): Any? {
         val string = prefs.getString(key, "") as String
-        LogUtils.e("---","--------Sharedpreferences-----get-----$string")
+//        LogUtils.e("---","--------Sharedpreferences-----get-----$string")
         return if (string != null) {
             String2Object(string)
         } else {

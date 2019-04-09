@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_15"
+    android:layout_marginBottom="@dimen/dp_15">
+
+    <!--<ImageView-->
+        <!--android:id="@+id/main_message_item_notice"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/dp_9"-->
+        <!--android:layout_marginTop="@dimen/dp_17"-->
+        <!--android:src="@mipmap/notice" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/main_message_item_type_txt"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/dp_9"-->
+        <!--android:layout_marginTop="@dimen/dp_14"-->
+        <!--android:layout_toRightOf="@+id/main_message_item_notice"-->
+        <!--android:includeFontPadding="false"-->
+        <!--android:text="系统消息"-->
+        <!--android:textColor="@color/login_logo_background"-->
+        <!--android:textSize="@dimen/sp_18"-->
+        <!--android:textStyle="bold" />-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="@dimen/dp_9"-->
+        <!--android:layout_marginTop="@dimen/dp_15"-->
+        <!--android:layout_marginBottom="@dimen/dp_15"-->
+        <!--android:layout_toRightOf="@+id/main_message_item_notice"-->
+        <!--android:layout_below="@+id/main_message_item_type_txt">-->
+
+        <TextView
+            android:id="@+id/main_message_content_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_22"
+            android:layout_toLeftOf="@+id/main_message_item_right_normal"
+            android:text="您有一个匹配订单，上车地点：机场辅路16号，客户联系方式：13866668888"
+            android:textColor="@color/gray_three_color"
+            android:textSize="@dimen/sp_15" />
+
+        <ImageView
+            android:id="@+id/main_message_item_right_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@mipmap/button_toright_normal" />
+    <!--</RelativeLayout>-->
+
+</RelativeLayout>

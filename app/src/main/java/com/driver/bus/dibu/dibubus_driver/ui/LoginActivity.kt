@@ -68,21 +68,23 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
             }
             R.id.user_click_register_txt ->{
 //                startActivity(Intent(this, RegisterActivity::class.java))
-//                var data:LoginModel.LoginData =LoginModel.LoginData()
-//                data.age = 1
-//                data.avatarUrl = "sjajg"
-//                SharedpreferencesUtil.saveObject("login",data)
+                var data:LoginModel.LoginData =LoginModel.LoginData()
+                data.age = 1
+                data.avatarUrl = "sjajg"
+                data.actionType = 1
+                SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL,data)
                 startActivity(Intent(this, MainActivity::class.java))
             }
         }
     }
 
-    override fun showLoginSuccess() {
+    override fun showLoginSuccess(loginData: LoginModel.LoginData) {
         dismissProgress()
-        var data:LoginModel.LoginData =LoginModel.LoginData()
-        data.age = 1
-        data.avatarUrl = "sjajg"
-        SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL,data)
+//        var data:LoginModel.LoginData =LoginModel.LoginData()
+//        data.age = 1
+//        data.avatarUrl = "sjajg"
+//        SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL, data)
+        SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL, loginData)
         startActivity(Intent(mContext, MainActivity::class.java))
         finish()
     }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_15"
+    android:layout_marginBottom="@dimen/dp_15">
+
+
+    <RelativeLayout
+        android:id="@+id/main_ellipse_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/main_green_ellipse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:src="@mipmap/green_ellipse" />
+
+        <ImageView
+            android:id="@+id/main_vertical_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/main_green_ellipse"
+            android:layout_marginTop="@dimen/dp_6"
+            android:src="@mipmap/vertical_point" />
+
+        <ImageView
+            android:id="@+id/main_yellow_ellipse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_vertical_point"
+            android:layout_marginTop="@dimen/dp_6"
+            android:src="@mipmap/yellow_ellipse" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/main_start_address_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_toRightOf="@+id/main_ellipse_layout"
+        android:layout_toLeftOf="@+id/main_type_txt"
+        android:text="成都是双流区机场路16号"
+        android:textColor="@color/gray_three_color"
+        android:textSize="@dimen/sp_15" />
+
+    <TextView
+        android:id="@+id/main_end_address_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_start_address_txt"
+        android:layout_marginLeft="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_9"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_toRightOf="@+id/main_ellipse_layout"
+        android:layout_toLeftOf="@+id/main_type_txt"
+        android:text="遂宁大英客运站"
+        android:textColor="@color/gray_three_color"
+        android:textSize="@dimen/sp_15" />
+
+
+    <TextView
+        android:id="@+id/main_type_txt"
+        android:layout_width="@dimen/dp_74"
+        android:layout_height="@dimen/dp_34"
+        android:layout_toLeftOf="@+id/main_order_right_normal"
+        android:background="@drawable/blue_type_shape_bg"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:textColor="@color/white"
+        android:text="@string/up_car"
+        android:textSize="@dimen/sp_15"
+        />
+
+    <ImageView
+        android:id="@+id/main_order_right_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dp_10"
+        android:src="@mipmap/button_toright_normal" />
+</RelativeLayout>

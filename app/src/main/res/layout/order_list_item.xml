@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:background="@drawable/blue_shape_bg"
+        android:background="@drawable/blue_top_shape_bg"
         android:orientation="vertical"
         >
         <TextView

@@ -31,7 +31,7 @@ class LoginPresenter(val v: LoginContract.View, val mContext: Context) : LoginCo
                     if (loginModel != null) {
                         if (loginModel.code == Constans.CODE_SUCCESS) {
                             if (loginModel.data != null)
-                                v.showLoginSuccess()
+                                v.showLoginSuccess(loginModel.data!!)
                         } else {
                             v.showLoginFail(loginModel.msg)
                         }

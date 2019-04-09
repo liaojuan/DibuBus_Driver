@@ -24,6 +24,8 @@
     <string name="no_network_hint">当前无网络</string>
     <string name="request_error">请求异常</string>
     <string name="register_message_fill">注册信息填写</string>
+    <string name="up_car">上车</string>
+    <string name="down_car">下车</string>
     <array name="line_city">
         <item>QQ空间</item>
         <item>QQ好友</item>

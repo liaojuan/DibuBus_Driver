@@ -18,5 +18,6 @@ class LoginModel : LoginContract.Model, BaseModel(){
         var avatarUrl : String ?= null //用户头像
         var orderCount : Long = 0 //订单数
         var nickName : String ?= null //昵称
+        var actionType : Int = 2//1：出车，2：收车
     }
 }

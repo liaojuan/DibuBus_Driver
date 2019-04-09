@@ -7,17 +7,18 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
-import android.util.Log
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
 
 import com.driver.bus.dibu.dibubus_driver.R
-import com.driver.bus.dibu.dibubus_driver.R.id.main_layout_line_item_txt
 import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainLineAdapter
+import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainMessageAdapter
+import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainOrderAdapter
+import com.driver.bus.dibu.dibubus_driver.utils.ActionType
 import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
+import com.driver.bus.dibu.dibubus_driver.utils.imageutils.GlideUtils
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreApi
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreferencesUtil
@@ -28,6 +29,10 @@ import kotlinx.android.synthetic.main.main_layout.*
 import kotlinx.android.synthetic.main.main_layout_line_item.view.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {
+//    val data = SharedpreferencesUtil.getObject("login") as LoginModel.LoginData //读取本地sharedpreferences数据
+    var data: LoginModel.LoginData ?= null
+    var messageAdapter: MainMessageAdapter ?= null //通知adapter
+    var orderAdapter: MainOrderAdapter ?= null //预约乘客adapter
 
     override fun getContentResId(): Int {
         return R.layout.activity_main
@@ -47,11 +52,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         initLinstener()
 
-//        var data = SharedpreferencesUtil.getObject("login") as LoginModel.LoginData
-        var data = SharedpreferencesUtil.getObject(SharedpreApi.LOGINMODEL)
-        if (data != null) {
-            data as LoginModel.LoginData
-            LogUtils.e("MainActivity", "----------MainActivity------${data.age} ------${data.avatarUrl}")
+        var datas = SharedpreferencesUtil.getObject(SharedpreApi.LOGINMODEL)
+        if (datas != null){
+            data = datas as LoginModel.LoginData
+            LogUtils.e("MainActivity", "----------MainActivity----data--${data!!.actionType}")
         }
 
         val list = initData()
@@ -106,6 +110,37 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 isSlidingToLast = dx > 0
             }
         })
+
+        initDatas()
+    }
+
+    /**
+     * 显示数据
+     */
+    private fun initDatas() {
+        if (data != null){
+            main_layout_user_name_txt.text = data!!.nickName  //!!代表可以为null，没有做判断
+            if (!TextUtils.isEmpty(data!!.avatarUrl))
+                GlideUtils.showCircleImage(mContext, user_head_img, data!!.avatarUrl)
+//            main_layout_rating_bar.setRating(data!!.score.toFloat())
+//            main_layout_license_plate_txt.text = data!!.vehicleNo
+//            main_layout_car_type_txt.text = data!!.brandName
+//            main_layout_order_num_txt.text = data!!.orderCount.toString() + "单"
+
+            if (data!!.actionType == ActionType.DRIVER_ACTIONTYPE_START_CAR){//出车
+                main_message_list.visibility = View.GONE
+                main_order_list.visibility = View.VISIBLE
+            }else if (data!!.actionType == ActionType.DRIVER_ACTIONTYPE_CLOSE_CAR){ //收车
+                main_order_list.visibility = View.GONE
+                main_message_list.visibility = View.VISIBLE
+            }
+        }
+        LogUtils.e("MainActivity", "----------MainActivity----actionType--${data!!.actionType}")
+        messageAdapter = MainMessageAdapter(initData(), mContext)
+        main_layout_message_list_view.adapter = messageAdapter
+
+        orderAdapter = MainOrderAdapter(initData(), mContext)
+        main_layout_order_list_view.adapter = orderAdapter
     }
 
     /**
@@ -120,7 +155,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             width += rect.width()
         }
         var s = 20 * list.size
-        LogUtils.e("MainActivity", "----------MainActivity------$width----$s")
+//        LogUtils.e("MainActivity", "----------MainActivity------$width----$s")
         width += s
         return width
     }
@@ -137,7 +172,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         } else {
             itemDecoration = ((screenWidth - width + widths) / list.size) / 2
         }
-        LogUtils.e("MainActivity", "----------MainActivity------screenWidth----$screenWidth----width---$width-----$widths----itemDecoration----$itemDecoration")
+//        LogUtils.e("MainActivity", "----------MainActivity------screenWidth----$screenWidth----width---$width-----$widths----itemDecoration----$itemDecoration")
         return itemDecoration
     }
 
