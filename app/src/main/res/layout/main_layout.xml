@@ -278,7 +278,7 @@
                 android:layout_marginTop="@dimen/dp_14"
                 android:layout_toRightOf="@+id/home_icon_my_normal"
                 android:includeFontPadding="false"
-                android:text="系统消息"
+                android:text="@string/book_passenger"
                 android:textColor="@color/login_logo_background"
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
@@ -289,8 +289,8 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/main_order_item_type_txt"
                 android:layout_toRightOf="@+id/home_icon_my_normal"
-                android:divider="@color/transparent"
-                android:dividerHeight="@dimen/dp_5"
+                android:divider="@color/background_color"
+                android:dividerHeight="@dimen/dp_1"
                 android:layout_marginBottom="@dimen/dp_12"
                 android:listSelector="@color/transparent"
                 android:layout_marginLeft="@dimen/dp_20"
@@ -324,7 +324,7 @@
                 android:layout_marginTop="@dimen/dp_14"
                 android:layout_toRightOf="@+id/main_message_item_notice"
                 android:includeFontPadding="false"
-                android:text="系统消息"
+                android:text="@string/system_message"
                 android:textColor="@color/login_logo_background"
                 android:textSize="@dimen/sp_18"
                 android:textStyle="bold" />
@@ -335,13 +335,12 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/main_message_item_type_txt"
                 android:layout_toRightOf="@+id/main_message_item_notice"
-                android:divider="@color/transparent"
-                android:dividerHeight="@dimen/dp_10"
+                android:dividerHeight="@dimen/dp_1"
+                android:divider="@color/background_color"
+                android:layout_marginBottom="@dimen/dp_12"
                 android:listSelector="@color/transparent"
-                android:paddingLeft="@dimen/dp_12"
-                android:paddingTop="@dimen/dp_10"
-                android:paddingRight="@dimen/dp_12"
-                android:scrollbars="none" />
+                android:layout_marginLeft="@dimen/dp_20"
+                android:scrollbars="none"/>
             <!--android:cacheColorHint="@color/transparent"-->
         </RelativeLayout>
 

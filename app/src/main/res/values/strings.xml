@@ -26,6 +26,8 @@
     <string name="register_message_fill">注册信息填写</string>
     <string name="up_car">上车</string>
     <string name="down_car">下车</string>
+    <string name="book_passenger">预约乘客</string>
+    <string name="system_message">系统消息</string>
     <array name="line_city">
         <item>QQ空间</item>
         <item>QQ好友</item>

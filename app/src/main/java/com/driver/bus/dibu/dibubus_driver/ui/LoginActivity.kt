@@ -71,7 +71,7 @@ class LoginActivity : BaseActivity() , LoginContract.View, View.OnClickListener{
                 var data:LoginModel.LoginData =LoginModel.LoginData()
                 data.age = 1
                 data.avatarUrl = "sjajg"
-                data.actionType = 1
+                data.actionType = 2
                 SharedpreferencesUtil.saveObject(SharedpreApi.LOGINMODEL,data)
                 startActivity(Intent(this, MainActivity::class.java))
             }

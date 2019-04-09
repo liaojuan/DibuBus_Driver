@@ -7,6 +7,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.driver.bus.dibu.dibubus_driver.R
 
+
+/**
+ * 用kotlin写了一些android常用的一些工具类  https://blog.csdn.net/laijian314/article/details/78018146
+ *
+ * Kotlin 工具类    https://blog.csdn.net/cq416269671/article/details/81187143
+ */
 object GlideUtils {
     /**
      * 显示图片

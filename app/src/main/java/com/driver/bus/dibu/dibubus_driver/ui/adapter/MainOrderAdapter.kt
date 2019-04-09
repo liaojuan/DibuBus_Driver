@@ -31,7 +31,7 @@ class MainOrderAdapter(val list: List<String>, val mContext: Context) : BaseAdap
         }
 
 //        mViewHolder.view.main_start_address_txt.text = position.toString()
-        if (position / 2 == 0) { //上车
+        if (position % 2 == 0) { //上车
             mViewHolder.view.main_type_txt.background = mContext.resources.getDrawable(R.drawable.orange_shape_bg)
             mViewHolder.view.main_type_txt.text = mContext.resources.getString(R.string.up_car)
         } else { //下车
