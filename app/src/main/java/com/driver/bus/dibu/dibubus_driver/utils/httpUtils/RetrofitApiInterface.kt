@@ -18,4 +18,8 @@ interface RetrofitApiInterface {
     @FormUrlEncoded
     @POST("/user/login")
     fun login(@FieldMap fields: Map<String, String>) : Call<LoginModel>
+
+    /**
+     * 获取订单列表
+     */
 }
