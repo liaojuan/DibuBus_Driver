@@ -10,15 +10,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.driver.bus.dibu.dibubus_driver.R
-import com.driver.bus.dibu.dibubus_driver.bean.ShareBean
-import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
-import kotlinx.android.synthetic.main.main_layout_line_item.view.*
 import kotlinx.android.synthetic.main.order_list_line_item.view.*
 
 /**
  * 针对主页面出站后线路处理
  */
-class OrderLineAdapter(val context: Context, val list: ArrayList<String>) : RecyclerView.Adapter<OrderLineAdapter.MyViewHolder>() {
+class OrderLineAdapter(val context: Context, val list: ArrayList<String>, val type: Int) : RecyclerView.Adapter<OrderLineAdapter.MyViewHolder>() {
 
     /**
      * 接受变量
@@ -28,6 +25,10 @@ class OrderLineAdapter(val context: Context, val list: ArrayList<String>) : Recy
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
         var view: View = LayoutInflater.from(context).inflate(R.layout.order_list_line_item, p0, false) //这种方式布局里面宽度要用wrap_content  不然 他默认是全屏
+        if (type == 0)
+            view.order_list_line_item_iv.setImageResource(R.mipmap.blue_line_ellipse)
+        else
+            view.order_list_line_item_iv.setImageResource(R.mipmap.green_line_ellipse)
         return MyViewHolder(view)
     }
 
@@ -38,14 +39,14 @@ class OrderLineAdapter(val context: Context, val list: ArrayList<String>) : Recy
     @SuppressLint("ResourceType")
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
         p0?.name.text = list[p1]
-        if (p1 % 2 == 0){
-            p0.image.setImageResource(R.mipmap.blue_ellipse)
-        }else{
-            p0.image.setImageResource(R.mipmap.green_ellipse)
-        }
+//        if (p1 % 2 == 0){
+//            p0.image.setImageResource(R.mipmap.blue_line_ellipse)
+//        }else{
+//            p0.image.setImageResource(R.mipmap.green_line_ellipse)
+//        }
 
         p0!!.itemView.setOnClickListener {
-            inter?.onItemClick()
+            inter?.setImageResourece()
         }
     }
 
@@ -63,7 +64,7 @@ class OrderLineAdapter(val context: Context, val list: ArrayList<String>) : Recy
      * 自定义接口，方便点击处理事件
      */
     interface MyInter {
-        fun onItemClick()
+        fun setImageResourece()
     }
 
 }
