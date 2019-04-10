@@ -108,9 +108,10 @@ abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
     /**
      * 设置标题栏右边文字显示
      */
-    open fun showTitleRightTxt(){
+    open fun showTitleRightTxt(rightTitle: String){
         title_right_img.visibility = View.GONE
         title_right_txt.visibility = View.VISIBLE
+        title_right_txt.text = rightTitle
     }
 
     /**

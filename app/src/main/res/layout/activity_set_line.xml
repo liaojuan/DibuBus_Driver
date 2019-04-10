@@ -1,27 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_12"
-        android:layout_marginRight="@dimen/dp_12"
-        android:background="@drawable/white_bottom_shape_bg"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        >
 
         <TextView
+            android:id="@+id/empty_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="您暂未设置线路，请先设置线路!"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/set_line_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_12"
             android:layout_marginLeft="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_12"
-            android:layout_marginBottom="@dimen/dp_16"
-            android:text="在出车前必须选择一条线路进行启用，若未启用线路，系统将自动默认为“线路一”为当前出车线路。"
-            android:textColor="@color/order_item_type_color"
-            android:textSize="@dimen/sp_14" />
-    </LinearLayout>
+            android:background="@drawable/white_bottom_shape_bg"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:text="在出车前必须选择一条线路进行启用，若未启用线路，系统将自动默认为“线路一”为当前出车线路。"
+                android:textColor="@color/order_item_type_color"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/set_line_refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/set_line_top">
+
+            <com.driver.bus.dibu.dibubus_driver.view.LoadMoreListView
+                android:id="@+id/set_line_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@color/transparent"
+                android:divider="@color/transparent"
+                android:dividerHeight="@dimen/dp_10"
+                android:listSelector="@color/transparent"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10"
+                android:scrollbars="none" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/set_line_refreshLayout"
+            android:layout_marginTop="@dimen/dp_10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:background="@drawable/white_shape_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_13"
+                        android:layout_marginTop="@dimen/dp_21"
+                        android:text="@string/out_bound_time"
+                        android:textColor="@color/gray_three_color"
+                        android:textSize="@dimen/sp_15" />
+
+                    <TextView
+                        android:id="@+id/select_out_bound_time_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_21"
+                        android:layout_marginTop="@dimen/dp_21"
+                        android:textColor="@color/gray_four_color"
+                        android:textSize="@dimen/sp_15"
+                        android:text="@string/please_select_out_bound_time"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_num"
+                android:layout_gravity="right"
+                android:background="@mipmap/line_black_bg"
+                />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

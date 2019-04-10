@@ -11,5 +11,6 @@ class SetLineActivity : BaseActivity() {
 
     override fun initViews() {
         showTitleLeftTxt()
+        showTitleRightTxt(resources.getString(R.string.add_line)) //设置右边标题栏为新增线路
     }
 }
