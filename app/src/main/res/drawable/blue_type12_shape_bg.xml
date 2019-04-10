@@ -5,8 +5,8 @@
         android:width="@dimen/horizontal_line_height"
         android:color="@color/blue_type" />
     <corners
-        android:bottomLeftRadius="@dimen/dp_4"
-        android:bottomRightRadius="@dimen/dp_4"
-        android:topLeftRadius="@dimen/dp_4"
-        android:topRightRadius="@dimen/dp_4" />
+        android:bottomLeftRadius="@dimen/dp_12"
+        android:bottomRightRadius="@dimen/dp_12"
+        android:topLeftRadius="@dimen/dp_12"
+        android:topRightRadius="@dimen/dp_12" />
 </shape>

@@ -5,12 +5,13 @@ import android.view.View
 import android.widget.AdapterView
 import com.driver.bus.dibu.dibubus_driver.R
 import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
-import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainOrderAdapter
+import com.driver.bus.dibu.dibubus_driver.ui.adapter.OrderListAdapter
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import com.driver.bus.dibu.dibubus_driver.view.LoadMoreListView
+import kotlinx.android.synthetic.main.activity_order_list.*
 
 class MyOrderListActivity : BaseActivity() ,SwipeRefreshLayout.OnRefreshListener, LoadMoreListView.OnLoadMoreListener, AdapterView.OnItemClickListener{
-    var myOrderAdapter : MainOrderAdapter ?= null
+    var orderAdapter : OrderListAdapter ?= null
 
     override fun getContentResId(): Int {
         return R.layout.activity_order_list
@@ -19,6 +20,8 @@ class MyOrderListActivity : BaseActivity() ,SwipeRefreshLayout.OnRefreshListener
     override fun initViews() {
         showTitleLeftTxt()
 
+        orderAdapter = OrderListAdapter(initData(), mContext)
+        listView.adapter = orderAdapter
     }
 
     /**
