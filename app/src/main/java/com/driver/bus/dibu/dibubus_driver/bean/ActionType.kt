@@ -1,4 +1,4 @@
-package com.driver.bus.dibu.dibubus_driver.utils
+package com.driver.bus.dibu.dibubus_driver.bean
 
 /**
  * 司机现在的状态

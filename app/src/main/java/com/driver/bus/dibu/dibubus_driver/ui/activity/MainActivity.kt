@@ -16,7 +16,7 @@ import com.driver.bus.dibu.dibubus_driver.ui.activity.base.BaseActivity
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainLineAdapter
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainMessageAdapter
 import com.driver.bus.dibu.dibubus_driver.ui.adapter.MainOrderAdapter
-import com.driver.bus.dibu.dibubus_driver.utils.ActionType
+import com.driver.bus.dibu.dibubus_driver.bean.ActionType
 import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
 import com.driver.bus.dibu.dibubus_driver.utils.imageutils.GlideUtils
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils

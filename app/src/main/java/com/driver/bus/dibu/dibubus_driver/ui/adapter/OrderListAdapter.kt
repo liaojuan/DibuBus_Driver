@@ -52,6 +52,7 @@ class OrderListAdapter(val list: ArrayList<String>, val mContext: Context) : Bas
             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, decoration))
         mViewHolder.view.order_list_item_recycler.addItemDecoration(mm)
         mViewHolder.view.order_list_item_recycler.adapter = adapter
+        mViewHolder.view.order_list_item_recycler.isNestedScrollingEnabled = false //处理滑动不流畅问题
         var bo = decoration > 20
         if (bo) {
             mViewHolder.view.order_list_line_item_fillet.visibility = View.VISIBLE

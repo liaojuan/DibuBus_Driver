@@ -32,6 +32,12 @@
     <string name="add_line">新增线路</string>
     <string name="out_bound_time">出站时间</string>
     <string name="please_select_out_bound_time">请选择出站时间</string>
+    <string name="all_line">整体线路</string>
+    <string name="start_address">起点</string>
+    <string name="end_address">终点</string>
+    <string name="add_line_address">点击添加途径点</string>
+    <string name="save">保存</string>
+    <string name="please_select_address">请选择地址</string>
     <array name="line_city">
         <item>QQ空间</item>
         <item>QQ好友</item>
