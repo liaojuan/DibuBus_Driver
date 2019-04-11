@@ -44,7 +44,7 @@ class RetrofitApi private constructor(val mContext: Context){
      */
     private fun initParam(){
         val bus_token = SharedpreferencesUtil.getString(SharedpreApi.Companion.BUS_TOKEN)
-        retrofit = Retrofit.Builder().baseUrl(Constans.apiUrls).addConverterFactory(GsonConverterFactory.create()).client(genericClient(bus_token!!)).build()
+        retrofit = Retrofit.Builder().baseUrl(ApiUtils.apiUrls).addConverterFactory(GsonConverterFactory.create()).client(genericClient(bus_token!!)).build()
     }
 
     fun genericClient(accessToken: String): OkHttpClient {
