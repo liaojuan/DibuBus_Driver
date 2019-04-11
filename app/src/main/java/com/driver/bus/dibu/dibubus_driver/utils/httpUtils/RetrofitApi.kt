@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.text.TextUtils
 import com.driver.bus.dibu.dibubus_driver.model.LoginModel
+import com.driver.bus.dibu.dibubus_driver.model.MyOrderListModel
 import com.driver.bus.dibu.dibubus_driver.utils.Constans
 import com.driver.bus.dibu.dibubus_driver.utils.logutils.LogUtils
 import com.driver.bus.dibu.dibubus_driver.utils.sharedpreutils.SharedpreApi
@@ -91,5 +92,17 @@ class RetrofitApi private constructor(val mContext: Context){
         strMap["password"] = password
         strMap["userType"] = userType.toString()
         return retrofitApiInterface.login(strMap)
+    }
+
+    /**
+     * 获取司机订单
+     */
+    fun getDriverOrderList(status: Int, pageNum : Int, pageSize: Int) : Call<MyOrderListModel>{
+        val retrofitApiInterface = retrofit!!.create(RetrofitApiInterface::class.java)
+        val intMap = HashMap<String, Int>()
+        intMap["status"] = status
+        intMap["pageNum"] = pageNum
+        intMap["pageSize"] = pageSize
+        return retrofitApiInterface.getDriverOrderList(intMap)
     }
 }

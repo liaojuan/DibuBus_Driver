@@ -1,14 +1,16 @@
 package com.driver.bus.dibu.dibubus_driver.model
 
 import com.driver.bus.dibu.dibubus_driver.contract.MyOrderListContract
-import java.io.Serializable
 
+/**
+ * 订单列表
+ */
 class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
     var data: Data ?= null  //该对象是可以为null的 这样写
 
     class Data  {
         var total : Long = 0 //记录总条数
-        var list: List<ListData>? = null
+        var list: List<OrderListData>? = null
         var pageNum = 1 //当前页
         var pageSize = 10 //分页大小
         var size: Long = 3 //当前页的记录数
@@ -27,52 +29,35 @@ class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
         var navigateLastPage: Int = 1 //最后一页的页号
     }
 
-    class ListData{
+    class OrderListData{
         var createTime: String = ""
         var updateTime: String = ""
         var id: Long = 0
-        var driverId: Long = 0
-        var title: String = ""
-        var activeTime: String =""
+        var startTime : String = ""
+        var passengerId : Long = 0
+        var passengerPhone: String = ""
         var startAddr: String = "" //起点
-        var endAddr: String ="" //终点
-        var trackName: String ="" //整体线路
-        var trackPoint: String = "" //整体线路经纬度
         var startLng: Double = 0.0 //起点经纬度
         var startLat: Double = 0.0
+        var endAddr: String ="" //终点
         var endLng: Double = 0.0 //终点经纬度
         var endLat: Double = 0.0
-        var status: Int = 0 //线路状态(1:停用，2:启用)
+        var upAddr : String = "" //上车地址
+        var upLng: Double = 0.0 //上车经纬度
+        var upLat: Double = 0.0
+        var upTime: String ?= null //上车时间
+        var downAddr : String = "" //下车地址
+        var downLng: Double = 0.0 //下车经纬度
+        var downLat: Double = 0.0
+        var downTime: String ?= null //下车时间
+        var status: Int = -1//订单状态[1:预约中,3:已上车,4:已下车,5:订单完成,-1:订单取消,-2:未上车]
+        var routeId: Long = 0 //线路id
+        var driverId: Long = 0//司机id
+        var driverName: String = ""//司机姓名
+        var driverPhone: String = ""//司机电话号码
+        var vehicleNo: String = "" //车牌号
+        var score: Float ?= null //订单评分
+        var cmt: String ?= null //订单评价司机人很好，服务周到"
     }
 
 }
-
-//获取列表数据采用统一的分页模式
-//
-//{
-//    "code": "0000",
-//    "msg": "ok",
-//    "data": {
-//    "total": 13, //总的记录数
-//    "list": [records], //数据的数组
-//    "pageNum": 2, //当前页号
-//    "pageSize": 10, //分页大小(分页的记录数)
-//    "size": 3, //当前页的记录数
-//    "startRow": 11, //开始行号
-//    "endRow": 13, //结束行号
-//    "pages": 2, //总共有多少页
-//    "prePage": 1, //前一页的页号
-//    "nextPage": 0,//后一页的页号
-//    "isFirstPage": false,//是否是第一页
-//    "isLastPage": true,//是否是最后一页
-//    "hasPreviousPage": true,//是否有前一页
-//    "hasNextPage": false,//是否有下一页
-//    "navigatePages": 8,  //导航的页号数量
-//    "navigatepageNums": [ //页号导航
-//    1,
-//    2
-//    ],
-//    "navigateFirstPage": 1, //首页的页号
-//    "navigateLastPage": 2   //最后一页的页号
-//}
-//}
