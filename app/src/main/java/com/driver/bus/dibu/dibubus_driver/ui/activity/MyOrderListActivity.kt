@@ -62,6 +62,7 @@ class MyOrderListActivity : BaseActivity() , MyOrderListContract.View, SwipeRefr
      * item点击事件
      */
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        //点击跳转到订单详情页面
     }
 
     /**

@@ -15,6 +15,10 @@ import com.driver.bus.dibu.dibubus_driver.utils.logutils.ToastUtil
 import com.driver.bus.dibu.dibubus_driver.view.dialog.ProgressBarDialog
 import kotlinx.android.synthetic.main.activity_base.*
 
+
+/**
+ * F:\apk\daibu.jks
+ */
 abstract class BaseActivity : AppCompatActivity() , View.OnClickListener{
     lateinit var mContext: Context
     var progressBarDialog : ProgressBarDialog ?= null

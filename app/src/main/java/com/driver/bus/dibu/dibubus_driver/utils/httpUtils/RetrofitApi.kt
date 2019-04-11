@@ -3,6 +3,7 @@ package com.driver.bus.dibu.dibubus_driver.utils.httpUtils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.text.TextUtils
+import com.driver.bus.dibu.dibubus_driver.model.LineListModel
 import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.model.MyOrderListModel
 import com.driver.bus.dibu.dibubus_driver.utils.Constans
@@ -104,5 +105,16 @@ class RetrofitApi private constructor(val mContext: Context){
         intMap["pageNum"] = pageNum
         intMap["pageSize"] = pageSize
         return retrofitApiInterface.getDriverOrderList(intMap)
+    }
+
+    /**
+     * 获取线路列表
+     */
+    fun getDriverLineList(pageNum: Int, pageSize: Int) : Call<LineListModel>{
+        val retrofitApiInterface = retrofit!!.create(RetrofitApiInterface::class.java)
+        val intMap = HashMap<String, Int>()
+        intMap["pageNum"] = pageNum
+        intMap["pageSize"] = pageSize
+        return retrofitApiInterface.getDriverLineList(intMap)
     }
 }

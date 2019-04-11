@@ -1,5 +1,6 @@
 package com.driver.bus.dibu.dibubus_driver.utils.httpUtils
 
+import com.driver.bus.dibu.dibubus_driver.model.LineListModel
 import com.driver.bus.dibu.dibubus_driver.model.LoginModel
 import com.driver.bus.dibu.dibubus_driver.model.MyOrderListModel
 import retrofit2.Call
@@ -23,4 +24,10 @@ interface RetrofitApiInterface {
      */
     @GET("/driver/order/list")
     fun getDriverOrderList(@QueryMap maps: Map<String, Int>) : Call<MyOrderListModel>
+
+    /**
+     * 获取线路列表
+     */
+    @GET("/route/list")
+    fun getDriverLineList(@QueryMap maps: Map<String, Int>) : Call<LineListModel>
 }
