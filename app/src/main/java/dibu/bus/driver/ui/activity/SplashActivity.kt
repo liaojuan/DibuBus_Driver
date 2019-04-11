@@ -22,7 +22,8 @@ class SplashActivity : BaseActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.test ->
-                startActivity(Intent(this, LoginActivity::class.java))
+                startActivity(Intent(this, OrderDetailsActivity::class.java))
+//                startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

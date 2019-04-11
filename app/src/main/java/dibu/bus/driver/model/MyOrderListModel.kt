@@ -1,5 +1,7 @@
 package dibu.bus.driver.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import dibu.bus.driver.contract.MyOrderListContract
 
 /**
@@ -29,7 +31,7 @@ class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
         var navigateLastPage: Int = 1 //最后一页的页号
     }
 
-    class OrderListData{
+    class OrderListData() : Parcelable{
         var createTime: String = "" //订单日期
         var updateTime: String = ""
         var id: Long = 0
@@ -59,6 +61,84 @@ class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
         var vehicleNo: String = "" //车牌号
         var score: Float ?= null //订单评分
         var cmt: String ?= null //订单评价司机人很好，服务周到"
+
+        constructor(parcel: Parcel) : this() {
+            createTime = parcel.readString()
+            updateTime = parcel.readString()
+            id = parcel.readLong()
+            startTime = parcel.readString()
+            routeName = parcel.readString()
+            passengerId = parcel.readLong()
+            passengerPhone = parcel.readString()
+            startAddr = parcel.readString()
+            startLng = parcel.readDouble()
+            startLat = parcel.readDouble()
+            endAddr = parcel.readString()
+            endLng = parcel.readDouble()
+            endLat = parcel.readDouble()
+            upAddr = parcel.readString()
+            upLng = parcel.readDouble()
+            upLat = parcel.readDouble()
+            upTime = parcel.readString()
+            downAddr = parcel.readString()
+            downLng = parcel.readDouble()
+            downLat = parcel.readDouble()
+            downTime = parcel.readString()
+            status = parcel.readInt()
+            routeId = parcel.readLong()
+            driverId = parcel.readLong()
+            driverName = parcel.readString()
+            driverPhone = parcel.readString()
+            vehicleNo = parcel.readString()
+            score = parcel.readValue(Float::class.java.classLoader) as? Float
+            cmt = parcel.readString()
+        }
+
+        override fun writeToParcel(parcel: Parcel, flags: Int) {
+            parcel.writeString(createTime)
+            parcel.writeString(updateTime)
+            parcel.writeLong(id)
+            parcel.writeString(startTime)
+            parcel.writeString(routeName)
+            parcel.writeLong(passengerId)
+            parcel.writeString(passengerPhone)
+            parcel.writeString(startAddr)
+            parcel.writeDouble(startLng)
+            parcel.writeDouble(startLat)
+            parcel.writeString(endAddr)
+            parcel.writeDouble(endLng)
+            parcel.writeDouble(endLat)
+            parcel.writeString(upAddr)
+            parcel.writeDouble(upLng)
+            parcel.writeDouble(upLat)
+            parcel.writeString(upTime)
+            parcel.writeString(downAddr)
+            parcel.writeDouble(downLng)
+            parcel.writeDouble(downLat)
+            parcel.writeString(downTime)
+            parcel.writeInt(status)
+            parcel.writeLong(routeId)
+            parcel.writeLong(driverId)
+            parcel.writeString(driverName)
+            parcel.writeString(driverPhone)
+            parcel.writeString(vehicleNo)
+            parcel.writeValue(score)
+            parcel.writeString(cmt)
+        }
+
+        override fun describeContents(): Int {
+            return 0
+        }
+
+        companion object CREATOR : Parcelable.Creator<OrderListData> {
+            override fun createFromParcel(parcel: Parcel): OrderListData {
+                return OrderListData(parcel)
+            }
+
+            override fun newArray(size: Int): Array<OrderListData?> {
+                return arrayOfNulls(size)
+            }
+        }
     }
 
 }

@@ -13,6 +13,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
+        }
     }
     buildTypes {
         release {
@@ -20,6 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    packagingOptions {
+//        exclude 'assets/ap1.data'
+//        exclude 'assets/marker_gps_no_sharing.png'
+//        exclude 'assets/map_assets/roadarrow.data'
+//        exclude 'assets/map_assets/icons_23_14_1514285400.data'
+//        exclude 'assets/location_pressed.png'
+//    }//两次导入了同一个名称的依赖，然后系统就不知道要以哪一个为准了，这种问题的解决办法也很简单，在build.gradle(Module: app)里面，加上一句：
+
+//packagingOptions {
+//        exclude 'assets/ap1.data'
+//    }
+//exclude后面跟的内容就填写你的错误的path里的内容即可，记得sync。
 }
 
 dependencies {
@@ -41,4 +57,19 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     //logging
     implementation 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+
+    implementation fileTree(
+            dir: 'libs', include: ['*.jar']
+    )
+    //高德地图引入
+   // 3D地图
+//    implementation 'com.amap.api:3dmap:latest.integration'
+    //2D地图
+//    compile 'com.amap.api:map2d:latest.integration'
+    //导航
+    implementation 'com.amap.api:navi-3dmap:latest.integration'
+    //搜索
+    implementation 'com.amap.api:search:latest.integration'
+    //定位
+    implementation 'com.amap.api:location:latest.integration'
 }

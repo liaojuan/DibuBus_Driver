@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">代步巴士</string>
+    <string name="map_key">3ca4848fe7a3cbdca26ba7b7fbd1d990</string>
+
 
     <string name="back">返回</string>
     <string name="username_hint">请输入账号</string>
@@ -42,6 +44,7 @@
     <string name="trip_ing">行程中</string>
     <string name="order_over">已完成</string>
     <string name="order_cancel">订单取消</string>
+    <string name="pick_up_passengers">去接乘客</string>
     <array name="line_city">
         <item>QQ空间</item>
         <item>QQ好友</item>

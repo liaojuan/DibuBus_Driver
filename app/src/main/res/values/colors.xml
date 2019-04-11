@@ -24,6 +24,7 @@
     <color name="order_item_type_color">#666666</color>
     <color name="gray_three_color">#717171</color>
     <color name="gray_four_color">#bbbbbb</color>
+    <color name="gray_fire_color">#dddddd</color>
 
     <!--添加日期 2019.04.02-->
 </resources>

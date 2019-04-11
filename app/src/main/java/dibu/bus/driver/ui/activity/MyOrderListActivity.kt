@@ -1,5 +1,6 @@
 package dibu.bus.driver.ui.activity
 
+import android.content.Intent
 import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import android.widget.AdapterView
@@ -63,6 +64,14 @@ class MyOrderListActivity : BaseActivity() , MyOrderListContract.View, SwipeRefr
      */
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         //点击跳转到订单详情页面
+        if (orderAdapter != null){
+            var orderItem : MyOrderListModel.OrderListData = orderAdapter!!.getItem(position) as MyOrderListModel.OrderListData
+            if (orderItem != null){
+                var intent = Intent(this@MyOrderListActivity, OrderDetailsActivity::class.java)
+                intent.putExtra("orderItem", orderItem)
+                startActivity(intent)
+            }
+        }
     }
 
     /**
