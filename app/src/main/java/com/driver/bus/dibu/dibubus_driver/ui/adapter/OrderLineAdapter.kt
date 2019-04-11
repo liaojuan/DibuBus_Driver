@@ -39,11 +39,6 @@ class OrderLineAdapter(val context: Context, val list: ArrayList<String>, val ty
     @SuppressLint("ResourceType")
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
         p0?.name.text = list[p1]
-//        if (p1 % 2 == 0){
-//            p0.image.setImageResource(R.mipmap.blue_line_ellipse)
-//        }else{
-//            p0.image.setImageResource(R.mipmap.green_line_ellipse)
-//        }
 
         p0!!.itemView.setOnClickListener {
             inter?.setImageResourece()

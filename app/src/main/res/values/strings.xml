@@ -38,6 +38,10 @@
     <string name="add_line_address">点击添加途径点</string>
     <string name="save">保存</string>
     <string name="please_select_address">请选择地址</string>
+    <string name="wait_up_car">等待上车</string>
+    <string name="trip_ing">行程中</string>
+    <string name="order_over">已完成</string>
+    <string name="order_cancel">订单取消</string>
     <array name="line_city">
         <item>QQ空间</item>
         <item>QQ好友</item>

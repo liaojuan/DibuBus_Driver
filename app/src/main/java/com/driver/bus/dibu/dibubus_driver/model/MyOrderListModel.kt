@@ -11,9 +11,9 @@ class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
     class Data  {
         var total : Long = 0 //记录总条数
         var list: List<OrderListData>? = null
-        var pageNum = 1 //当前页
-        var pageSize = 10 //分页大小
-        var size: Long = 3 //当前页的记录数
+        var pageNum :Int = 1 //当前页
+        var pageSize : Int = 10 //分页大小
+        var size: Long = 3 //当前页的记录数 (当前页数中，记录条数)
         var startRow: Long = 0 //开始行号
         var endRow: Long = 0 //结束行号
         var pages: Int = 0//总共有多少页
@@ -30,10 +30,11 @@ class MyOrderListModel : MyOrderListContract.Model, BaseModel() {
     }
 
     class OrderListData{
-        var createTime: String = ""
+        var createTime: String = "" //订单日期
         var updateTime: String = ""
         var id: Long = 0
-        var startTime : String = ""
+        var startTime : String = "" //出站时间
+        var routeName : String = ""
         var passengerId : Long = 0
         var passengerPhone: String = ""
         var startAddr: String = "" //起点

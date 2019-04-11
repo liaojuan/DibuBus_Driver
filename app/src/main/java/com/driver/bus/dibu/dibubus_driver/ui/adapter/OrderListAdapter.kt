@@ -6,21 +6,27 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.driver.bus.dibu.dibubus_driver.R
+import com.driver.bus.dibu.dibubus_driver.model.MyOrderListModel
 import com.driver.bus.dibu.dibubus_driver.utils.ScreenUtil
+import com.driver.bus.dibu.dibubus_driver.utils.TestUtils
 import com.driver.bus.dibu.dibubus_driver.view.RecyclerViewSpacesItemDecoration
 import kotlinx.android.synthetic.main.main_layout.*
 import kotlinx.android.synthetic.main.order_list_item.view.*
 import kotlinx.android.synthetic.main.order_list_line_item.view.*
+import java.util.*
+import java.util.Collections.addAll
 
-class OrderListAdapter(val list: ArrayList<String>, val mContext: Context) : BaseAdapter() {
+class OrderListAdapter(val list: ArrayList<MyOrderListModel.OrderListData>, val mContext: Context) : BaseAdapter() {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        var mAddrList = ArrayList<String>() //每一个的地点adapter
         var mViewHolder: MyViewHolder? = null
         var mConvertView = convertView
         if (mConvertView == null) {
@@ -30,22 +36,59 @@ class OrderListAdapter(val list: ArrayList<String>, val mContext: Context) : Bas
         } else {
             mViewHolder = mConvertView.tag as MyViewHolder
         }
+
+        if (!TextUtils.isEmpty(list[position].routeName)){
+            var routeStr: String  = list[position].routeName
+            var route = routeStr.split("-".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            mAddrList.addAll(route)
+        }
+
         var adapter: OrderLineAdapter
         if (position % 2 == 0) { //单数颜色
             mViewHolder.view.order_list_item_up_layout.background = mContext.resources.getDrawable(R.drawable.blue_top_shape_bg)
             mViewHolder.view.order_list_item_start_car_txt.background = mContext.resources.getDrawable(R.drawable.blue_type12_shape_bg)
-            adapter= OrderLineAdapter(mContext, list, 0)
+            adapter= OrderLineAdapter(mContext, mAddrList, 0)
         } else { //双数颜色
             mViewHolder.view.order_list_item_up_layout.background = mContext.resources.getDrawable(R.drawable.green_top_shape_bg)
             mViewHolder.view.order_list_item_start_car_txt.background = mContext.resources.getDrawable(R.drawable.green_type12_shape_bg)
-            adapter= OrderLineAdapter(mContext, list, 1)
+            adapter= OrderLineAdapter(mContext, mAddrList, 1)
+        }
+        if (!TextUtils.isEmpty(list[position].createTime)){ //订单创建时间
+            mViewHolder.view.order_list_item_date_txt.text = list[position].createTime
+        }
+        if (!TextUtils.isEmpty(list[position].startTime)){ //出站时间
+            mViewHolder.view.order_list_item_start_car_txt.text = list[position].startTime
+        }
+        if (!TextUtils.isEmpty(list[position].upTime)){ //上车时间
+            mViewHolder.view.order_list_item_up_car_time_txt.text = list[position].upTime
+            mViewHolder.view.order_list_item_blue_ellipse.visibility = View.VISIBLE
+        }else{
+            mViewHolder.view.order_list_item_blue_ellipse.visibility = View.INVISIBLE
+        }
+        if (!TextUtils.isEmpty(list[position].downTime)){//下车时间
+            mViewHolder.view.order_list_item_down_car_time_txt.text = list[position].downTime
+        }
+        mViewHolder.view.order_list_item_type_txt.text = when(list[position].status){ //订单状态
+            1 -> mContext.getString(R.string.wait_up_car)
+            3 -> mContext.getString(R.string.trip_ing)
+            4 -> mContext.getString(R.string.order_over)
+            5 -> mContext.getString(R.string.order_over)
+            -1 -> mContext.getString(R.string.order_cancel)
+            -2 -> mContext.getString(R.string.order_cancel)
+            else -> mContext.getString(R.string.wait_up_car)
+        }
+        if (!TextUtils.isEmpty(list[position].upAddr)){ //上车地址
+            mViewHolder.view.order_list_item_start_address_txt.text = list[position].upAddr
+        }
+        if (!TextUtils.isEmpty(list[position].downAddr)){ //下车地址
+            mViewHolder.view.order_list_item_end_address_txt.text = list[position].downAddr
         }
 
 
         val linearLayoutManager = LinearLayoutManager(mContext)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         mViewHolder.view.order_list_item_recycler.layoutManager = linearLayoutManager
-        val decoration = getItemDecoration(getWidth(list), list)
+        val decoration = getItemDecoration(getWidth(mAddrList), mAddrList)
         val mm = if (decoration > 0)
             RecyclerViewSpacesItemDecoration(ScreenUtil.sher(0, 0, decoration, 0))
         else
