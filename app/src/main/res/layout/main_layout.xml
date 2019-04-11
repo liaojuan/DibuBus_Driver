@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.driver.bus.dibu.dibubus_driver.view.CircleImageView
+            <dibu.bus.driver.view.CircleImageView
                 android:id="@+id/user_head_img"
                 android:layout_width="@dimen/dp_55"
                 android:layout_height="@dimen/dp_55"
@@ -86,7 +86,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_12" />
                 <!--评分控件-->
-                <com.driver.bus.dibu.dibubus_driver.view.RatingView
+                <dibu.bus.driver.view.RatingView
                     android:id="@+id/main_layout_rating_bar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

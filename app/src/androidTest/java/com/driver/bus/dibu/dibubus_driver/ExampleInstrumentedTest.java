@@ -1,4 +1,4 @@
-package com.driver.bus.dibu.dibubus_driver;
+package dibu.bus.driver;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.driver.bus.dibu.dibubus_driver", appContext.getPackageName());
+        assertEquals("dibu.bus.driver", appContext.getPackageName());
     }
 }

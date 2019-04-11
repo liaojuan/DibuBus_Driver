@@ -1,4 +1,4 @@
-package com.driver.bus.dibu.dibubus_driver;
+package dibu.bus.driver;
 
 import org.junit.Test;
 
