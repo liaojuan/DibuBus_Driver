@@ -59,6 +59,14 @@ public class MQTTService extends Service {
         }
     }
 
+    public static void unSubscribe(String msg){//取消订阅
+        try {
+            client.unsubscribe(msg);
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void init() {
         // 服务器地址（协议+地址+端口号）
         String uri = host;
