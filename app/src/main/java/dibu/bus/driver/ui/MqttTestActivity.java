@@ -16,6 +16,7 @@ import dibu.bus.driver.ui.activity.MainActivity;
 
 /**
  * https://blog.csdn.net/asjqkkkk/article/details/80714234   参考地址  mqtt android客户端（百度出来的）
+ * https://www.jianshu.com/p/73436a5cf855  这个地址也是，貌似用的阿里云上面的mqtt
  */
 public class MqttTestActivity extends AppCompatActivity implements IGetMessageCallBack {
     private TextView textView;
