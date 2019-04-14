@@ -46,6 +46,10 @@ public class MQTTService extends Service {
         init();
     }
 
+    /**
+     * 发布消息
+     * @param msg
+     */
     public static void publish(String msg){
         String topic = myTopic;
         Integer qos = 0;
@@ -59,6 +63,28 @@ public class MQTTService extends Service {
         }
     }
 
+    /**
+     * 订阅消息
+     * @param topic
+     * @param qos
+     */
+    public static void subscribe(String topic, int qos){
+        if (client!=null) {
+            int[] Qos  = {qos};
+            String[] topic1 = {topic};
+            try {
+                client.subscribe(topic1, Qos);
+                Log.d(TAG,"开始订阅topic="+topic);
+            } catch (MqttException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 取消订阅
+     * @param msg
+     */
     public static void unSubscribe(String msg){//取消订阅
         try {
             client.unsubscribe(msg);
@@ -163,6 +189,12 @@ public class MQTTService extends Service {
     // MQTT监听并且接受消息
     private MqttCallback mqttCallback = new MqttCallback() {
 
+        /**
+         * 接受消息的回调方法
+         * @param topic
+         * @param message
+         * @throws Exception
+         */
         @Override
         public void messageArrived(String topic, MqttMessage message) throws Exception {
 
@@ -175,6 +207,10 @@ public class MQTTService extends Service {
             Log.i(TAG, str2);
         }
 
+        /**
+         * 发布消息的回调
+         * @param arg0
+         */
         @Override
         public void deliveryComplete(IMqttDeliveryToken arg0) {
 
