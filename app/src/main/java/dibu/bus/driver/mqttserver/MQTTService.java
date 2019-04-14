@@ -148,6 +148,7 @@ public class MQTTService extends Service {
         public void onFailure(IMqttToken arg0, Throwable arg1) {
             arg1.printStackTrace();
             // 连接失败，重连
+            doClientConnection(); //并且要重新订阅topic（最好把以前订阅的topic重新弄一下）
         }
     };
 
@@ -174,6 +175,7 @@ public class MQTTService extends Service {
         @Override
         public void connectionLost(Throwable arg0) {
             // 失去连接，重连
+            doClientConnection(); //并且要重新订阅topic（最好把以前订阅的topic重新弄一下）
         }
     };
 
