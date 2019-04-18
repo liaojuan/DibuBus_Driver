@@ -31,7 +31,7 @@ public class MQTTService extends Service {
     private static MqttAndroidClient client;
     private MqttConnectOptions conOpt;
 
-    private String host = "tcp://192.168.0.11:61613";
+    private String host = "tcp://101.132.24.242:1883";
     private String userName = "admin";
     private String passWord = "password";
     private static String myTopic = "ForTest";      //要订阅的主题
@@ -108,9 +108,9 @@ public class MQTTService extends Service {
         // 心跳包发送间隔，单位：秒
         conOpt.setKeepAliveInterval(20);
         // 用户名
-        conOpt.setUserName(userName);
-        // 密码
-        conOpt.setPassword(passWord.toCharArray());     //将字符串转换为字符串数组
+//        conOpt.setUserName(userName);
+//        // 密码
+//        conOpt.setPassword(passWord.toCharArray());     //将字符串转换为字符串数组
 
         // last will message
         boolean doConnect = true;
@@ -169,7 +169,7 @@ public class MQTTService extends Service {
 
         @Override
         public void onSuccess(IMqttToken arg0) {
-            Log.i(TAG, "连接成功 ");
+            Log.e(TAG, "连接成功 ");
             try {
                 // 订阅myTopic话题
                 client.subscribe(myTopic,1);
@@ -180,6 +180,7 @@ public class MQTTService extends Service {
 
         @Override
         public void onFailure(IMqttToken arg0, Throwable arg1) {
+            Log.e(TAG, "连接失败 ");
             arg1.printStackTrace();
             // 连接失败，重连
             doClientConnection(); //并且要重新订阅topic（最好把以前订阅的topic重新弄一下）
@@ -218,6 +219,7 @@ public class MQTTService extends Service {
 
         @Override
         public void connectionLost(Throwable arg0) {
+            Log.e("TAG", arg0.toString());
             // 失去连接，重连
             doClientConnection(); //并且要重新订阅topic（最好把以前订阅的topic重新弄一下）
         }

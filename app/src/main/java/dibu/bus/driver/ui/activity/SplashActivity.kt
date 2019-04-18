@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.View
 import dibu.bus.driver.R
 import dibu.bus.driver.ui.LoginActivity
+import dibu.bus.driver.ui.MqttTestActivity
 import dibu.bus.driver.ui.activity.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -22,7 +23,8 @@ class SplashActivity : BaseActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.test ->
-                startActivity(Intent(this, OrderDetailsActivity::class.java))
+//                startActivity(Intent(this, OrderDetailsActivity::class.java))
+                startActivity(Intent(this, MqttTestActivity::class.java))
 //                startActivity(Intent(this, LoginActivity::class.java))
         }
     }

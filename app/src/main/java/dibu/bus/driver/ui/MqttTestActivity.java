@@ -28,10 +28,10 @@ public class MqttTestActivity extends AppCompatActivity implements IGetMessageCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test_mqtt);
 
-//        textView = (TextView) findViewById(R.id.text);
-//        button = (Button) findViewById(R.id.test);
+        textView = (TextView) findViewById(R.id.text);
+        button = (Button) findViewById(R.id.button);
 
         serviceConnection = new MyServiceConnection();
         serviceConnection.setIGetMessageCallBack(MqttTestActivity.this);
